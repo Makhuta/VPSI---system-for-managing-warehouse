@@ -1,7 +1,3 @@
-# VPSI - System for managing warehouse
-
-## Zadání:
-
 # Systém pro řízení skladu – Úvod, Cíle a Požadavky
 
 ## Úvod
