@@ -17,7 +17,7 @@ class Supplier(models.Model):
 class Item(models.Model):
     name = models.CharField(max_length=50)
     category = models.CharField(max_length=50)
-    price = models.DecimalField()
+    price = models.DecimalField(decimal_places=2,max_digits=6)
     supplier = models.ForeignKey(Supplier,on_delete=models.SET_NULL,null=True)
     #status
     created_at = models.DateTimeField()
