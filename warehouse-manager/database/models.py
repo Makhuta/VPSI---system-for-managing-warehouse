@@ -1,14 +1,15 @@
 from django.db import models
+from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 
 class Supplier(models.Model):
     #sid
-    name = models.CharField(max_length=50)
-    contact = models.CharField(max_length=50)
-    phone = models.CharField(max_length=13)
-    address = models.CharField(max_length=50)
-    created_at = models.DateTimeField(auto_now_add=True)
+    name = models.CharField(max_length=50, verbose_name=_('Name'))
+    contact = models.CharField(max_length=50, verbose_name=_('Contact'))
+    phone = models.CharField(max_length=13, verbose_name=_('Phone'))
+    address = models.CharField(max_length=50, verbose_name=_('Address'))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=('Created At'))
 
     def __str__(self):
         return self.name

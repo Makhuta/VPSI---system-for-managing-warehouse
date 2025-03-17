@@ -2,6 +2,7 @@
 *__pycache__
 *db.sqlite3
 *migrations/
+*django.mo
 warehouse-manager/static/*
 venv/*
 .env
