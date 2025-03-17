@@ -64,6 +64,8 @@ CMD sh -c " \
     python manage.py makemigrations database frontend services api && \
     # Run database migrations \
     python manage.py migrate && \
+    # Compiling messages
+    django-admin compilemessages && \
     # Create superuser if username and password are passed as environment variables \
     if [ -n \"$DJANGO_USERNAME\" ] && [ -n \"$DJANGO_PASSWORD\" ]; then \
         python manage.py create_custom_superuser \"$DJANGO_USERNAME\" \"$DJANGO_EMAIL\" \"$DJANGO_PASSWORD\"; \
