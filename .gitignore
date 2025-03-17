@@ -4,3 +4,4 @@
 *migrations/
 warehouse-manager/static/*
 venv/*
+.env

@@ -8,30 +8,43 @@ class Supplier(models.Model):
     contact = models.CharField(max_length=50)
     phone = models.CharField(max_length=13)
     address = models.CharField(max_length=50)
-    created_at = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.name
 
 
 class Item(models.Model):
+    ITEM_STATUS = [
+        ('active', 'Active'),
+        ('inactive', 'Inactive')
+    ]   
+    
     name = models.CharField(max_length=50)
     category = models.CharField(max_length=50)
     price = models.DecimalField(decimal_places=2,max_digits=6)
     supplier = models.ForeignKey(Supplier,on_delete=models.SET_NULL,null=True)
-    #status
-    created_at = models.DateTimeField()
-    updated_at = models.DateTimeField()
+    status = models.CharField(max_length=10, choices=ITEM_STATUS, default='active')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.name
 
 class Order(models.Model):
+    ORDER_STATUS = [
+        ('pending', 'Pending'),
+        ('approved', 'Approved'),
+        ('delivered', 'Delivered'),
+        ('canceled', 'Canceled')
+    ]
+    
     # oid
     item = models.ForeignKey(Item,on_delete=models.SET_NULL,null=True)
-    order_date = models.DateTimeField()
+    order_date = models.DateTimeField(auto_now_add=True)
     quantity = models.IntegerField()
-    # status
+    status = models.CharField(max_length=10, choices=ORDER_STATUS, default='pending')
+    
 
 class Warehouse(models.Model):
     #wid
@@ -45,8 +58,8 @@ class Stocks(models.Model):
     #sid
     item = models.ForeignKey(Item, on_delete=models.SET_NULL, null=True)
     warehouse = models.ForeignKey(Warehouse, on_delete=models.SET_NULL,null=True)
-    quanitity = models.IntegerField()
-    min_quantity = models.IntegerField()
+    quantity = models.IntegerField(default=0)
+    min_quantity = models.IntegerField() 
 
     def __str__(self):
         res = ''
