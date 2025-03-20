@@ -16,137 +16,136 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=(n % 1 == 0 && n == 1 ? 0 : n % 1 == 0 && n "
-">= 2 && n <= 4 ? 1 : n % 1 != 0 ? 2: 3);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: .\database\models.py:8
 msgid "supplier.name"
-msgstr ""
+msgstr "Name"
 
 #: .\database\models.py:9
 msgid "supplier.contact"
-msgstr ""
+msgstr "Contact"
 
 #: .\database\models.py:10
 msgid "supplier.phone"
-msgstr ""
+msgstr "Phone"
 
 #: .\database\models.py:11
 msgid "supplier.address"
-msgstr ""
+msgstr "Address"
 
 #: .\database\models.py:12
 msgid "supplier.created_at"
-msgstr ""
+msgstr "Created At"
 
 #: .\database\models.py:20
 msgid "item.active"
-msgstr ""
+msgstr "Active"
 
 #: .\database\models.py:21
 msgid "item.inactive"
-msgstr ""
+msgstr "Inactive"
 
 #: .\database\models.py:25
 msgid "item.name"
-msgstr ""
+msgstr "Name"
 
 #: .\database\models.py:26
 msgid "item.category"
-msgstr ""
+msgstr "Category"
 
 #: .\database\models.py:27
 msgid "item.price"
-msgstr ""
+msgstr "Price"
 
 #: .\database\models.py:28
 msgid "item.supplier"
-msgstr ""
+msgstr "Supplier"
 
 #: .\database\models.py:29
 msgid "item.status"
-msgstr ""
+msgstr "Status"
 
 #: .\database\models.py:30
 msgid "item.created_at"
-msgstr ""
+msgstr "Created At"
 
 #: .\database\models.py:31
 msgid "item.updated_at"
-msgstr ""
+msgstr "Updated At"
 
 #: .\database\models.py:38
 msgid "order.pending"
-msgstr ""
+msgstr "Pending"
 
 #: .\database\models.py:39
 msgid "order.approved"
-msgstr ""
+msgstr "Approved"
 
 #: .\database\models.py:40
 msgid "order.delivered"
-msgstr ""
+msgstr "Delivered"
 
 #: .\database\models.py:41
 msgid "order.canceled"
-msgstr ""
+msgstr "Canceled"
 
 #: .\database\models.py:45
 msgid "order.item"
-msgstr ""
+msgstr "Item"
 
 #: .\database\models.py:46
 msgid "order.order_date"
-msgstr ""
+msgstr "Order date"
 
 #: .\database\models.py:47
 msgid "order.quantity"
-msgstr ""
+msgstr "Quantity"
 
 #: .\database\models.py:48
 msgid "order.status"
-msgstr ""
+msgstr "Status"
 
 #: .\database\models.py:53
 msgid "warehouse.name"
-msgstr ""
+msgstr "Name"
 
 #: .\database\models.py:54
 msgid "warehouse.location"
-msgstr ""
+msgstr "Location"
 
 #: .\database\models.py:61
 msgid "stock.item"
-msgstr ""
+msgstr "Item"
 
 #: .\database\models.py:62
 msgid "stock.warehouse"
-msgstr ""
+msgstr "Warehouse"
 
 #: .\database\models.py:63
 msgid "stock.quantity"
-msgstr ""
+msgstr "Quantity"
 
 #: .\database\models.py:64
 msgid "stock.min_quantity"
-msgstr ""
+msgstr "Min Quantity"
 
 #: .\frontend\templates\index.html:7
 msgid "hello_world"
-msgstr ""
+msgstr "Hello World"
 
 #: .\frontend\templates\index.html:20
 msgid "change_language_button"
-msgstr ""
+msgstr "Change Language"
 
 #: .\server\settings.py:146
 msgid "langs.english"
-msgstr ""
+msgstr "English"
 
 #: .\server\settings.py:147
 msgid "langs.czech"
-msgstr ""
+msgstr "Czech"
 
 #: .\server\settings.py:148
 msgid "langs.slovak"
-msgstr ""
+msgstr "Slovak"

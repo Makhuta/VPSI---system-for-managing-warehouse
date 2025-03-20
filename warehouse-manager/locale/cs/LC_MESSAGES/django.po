@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-17 13:22+0100\n"
+"POT-Creation-Date: 2025-03-20 17:37+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,18 +18,135 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n "
 "<= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
+
 #: .\database\models.py:8
-msgid "Name"
+msgid "supplier.name"
 msgstr "Název"
 
 #: .\database\models.py:9
-msgid "Contact"
+msgid "supplier.contact"
 msgstr "Kontakt"
 
 #: .\database\models.py:10
-msgid "Phone"
+msgid "supplier.phone"
 msgstr "Telefon"
 
 #: .\database\models.py:11
-msgid "Address"
+msgid "supplier.address"
 msgstr "Adresa"
+
+#: .\database\models.py:12
+msgid "supplier.created_at"
+msgstr "Vatvořeno"
+
+#: .\database\models.py:20
+msgid "item.active"
+msgstr "Aktivní"
+
+#: .\database\models.py:21
+msgid "item.inactive"
+msgstr "Neaktivní"
+
+#: .\database\models.py:25
+msgid "item.name"
+msgstr "Název"
+
+#: .\database\models.py:26
+msgid "item.category"
+msgstr "Kategorie"
+
+#: .\database\models.py:27
+msgid "item.price"
+msgstr "Cena"
+
+#: .\database\models.py:28
+msgid "item.supplier"
+msgstr "Dodavatel"
+
+#: .\database\models.py:29
+msgid "item.status"
+msgstr "Status"
+
+#: .\database\models.py:30
+msgid "item.created_at"
+msgstr "Vytvořeno"
+
+#: .\database\models.py:31
+msgid "item.updated_at"
+msgstr "Upraveno"
+
+#: .\database\models.py:38
+msgid "order.pending"
+msgstr "Čeká"
+
+#: .\database\models.py:39
+msgid "order.approved"
+msgstr "Schváleno"
+
+#: .\database\models.py:40
+msgid "order.delivered"
+msgstr "Doručeno"
+
+#: .\database\models.py:41
+msgid "order.canceled"
+msgstr "Zrušeno"
+
+#: .\database\models.py:45
+msgid "order.item"
+msgstr "Item"
+
+#: .\database\models.py:46
+msgid "order.order_date"
+msgstr "Datum objednávky"
+
+#: .\database\models.py:47
+msgid "order.quantity"
+msgstr "Množství"
+
+#: .\database\models.py:48
+msgid "order.status"
+msgstr "Status"
+
+#: .\database\models.py:53
+msgid "warehouse.name"
+msgstr "Název"
+
+#: .\database\models.py:54
+msgid "warehouse.location"
+msgstr "Lokace"
+
+#: .\database\models.py:61
+msgid "stock.item"
+msgstr "Item"
+
+#: .\database\models.py:62
+msgid "stock.warehouse"
+msgstr "Sklad"
+
+#: .\database\models.py:63
+msgid "stock.quantity"
+msgstr "Množství"
+
+#: .\database\models.py:64
+msgid "stock.min_quantity"
+msgstr "Minimální množství"
+
+#: .\frontend\templates\index.html:7
+msgid "hello_world"
+msgstr "Ahoj světe"
+
+#: .\frontend\templates\index.html:20
+msgid "change_language_button"
+msgstr "Změnit jazyk"
+
+#: .\server\settings.py:146
+msgid "langs.english"
+msgstr "Angličtina"
+
+#: .\server\settings.py:147
+msgid "langs.czech"
+msgstr "Čeština"
+
+#: .\server\settings.py:148
+msgid "langs.slovak"
+msgstr "Slovenština"
