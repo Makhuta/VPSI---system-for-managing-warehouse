@@ -12,6 +12,7 @@ RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     sqlite3 \
     nginx \
+    gettext \
     && rm -rf /var/lib/apt/lists/*
 
 # Upgrade pip
