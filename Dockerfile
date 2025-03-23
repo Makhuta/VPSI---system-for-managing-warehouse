@@ -30,8 +30,6 @@ COPY ./warehouse-manager /app/
 EXPOSE 80
 
 
-ARG IMAGES_DIR=/uploads
-
 # Set environment variables for the app (can be overridden when running the container)
 ENV DEBUG=False
 ENV ALLOWED_HOSTS=*
@@ -39,13 +37,12 @@ ENV DJANGO_USERNAME=Admin
 ENV DJANGO_PASSWORD=irm-admin
 ENV DJANGO_EMAIL=default@email.com
 ENV DATABASE_DIR=/app
-ENV IMAGES_DIR=${IMAGES_DIR}
 ENV CSRF_TRUSTED_ORIGINS="localhost:80,127.0.0.1:80"
 
 # Copy Nginx configuration file
 COPY nginx.conf /etc/nginx/nginx.conf
 
-COPY ./static ${IMAGES_DIR}/static/
+COPY ./static /uploads/static/
 
 RUN chmod +x /usr/bin/entrypoint.sh
 ENTRYPOINT ["entrypoint.sh"]
