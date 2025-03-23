@@ -3,3 +3,9 @@ django-admin makemessages -a
 
 # Will compile the translations
 django-admin compilemessages
+
+# Creates a .puml file from models.py file, which can be used for creation of database diagram
+python3 generate_plantuml.py [path/to/models.py] > [your_file.puml]
+
+# Creates a database diagram as .png image file (by default) [plantuml package required] 
+plantuml your_file.puml
