@@ -1,0 +1,23 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #f4f4f4;
+}
+.header-left h1 {
+    margin: 0;
+}
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.search-input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.user {
+    font-weight: bold;
+}
