@@ -52,8 +52,6 @@ CMD sh -c " \
     # Ensure DATABASE_DIR exists \
     mkdir -p \"$DATABASE_DIR\" && \
     chmod -R 755 \"$DATABASE_DIR\" && \
-    mkdir -p \"$IMAGES_DIR\" && \
-    chmod -R 755 \"$IMAGES_DIR\" && \
     # Make database migrations \
     python manage.py makemigrations database frontend services api && \
     # Run database migrations \
