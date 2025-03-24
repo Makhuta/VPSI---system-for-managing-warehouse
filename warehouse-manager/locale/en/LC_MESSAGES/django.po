@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-23 22:11+0100\n"
+"POT-Creation-Date: 2025-03-24 12:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -131,47 +131,47 @@ msgid "stock.min_quantity"
 msgstr "Min Quantity"
 
 #: .\frontend\templates\index.html:14
-msgid "index.overview"
+msgid "frontend.index.overview"
 msgstr "Overview"
 
 #: .\frontend\templates\index.html:15
-msgid "index.items"
+msgid "frontend.index.items"
 msgstr "Items"
 
 #: .\frontend\templates\index.html:16
-msgid "index.orders"
+msgid "frontend.index.orders"
 msgstr "Orders"
 
 #: .\frontend\templates\index.html:17
-msgid "index.suppliers"
+msgid "frontend.index.suppliers"
 msgstr "Suppliers"
 
 #: .\frontend\templates\index.html:18
-msgid "index.settings"
+msgid "frontend.index.settings"
 msgstr "Settings"
 
 #: .\frontend\templates\index.html:27
-msgid "index.welcome_back"
+msgid "frontend.index.welcome_back"
 msgstr "Welcome Back"
 
 #: .\frontend\templates\index.html:30
-msgid "index.search"
+msgid "frontend.index.search"
 msgstr "Search..."
 
 #: .\frontend\templates\index.html:38
-msgid "index.total"
+msgid "frontend.index.total"
 msgstr "Total"
 
 #: .\frontend\templates\index.html:42
-msgid "index.active_orders"
+msgid "frontend.index.active_orders"
 msgstr "Active Orders"
 
 #: .\frontend\templates\index.html:46
-msgid "index.critical_stocks"
+msgid "frontend.index.critical_stocks"
 msgstr "Critical Stocks"
 
 #: .\frontend\templates\index.html:50
-msgid "index.incoming_shipments"
+msgid "frontend.index.incoming_shipments"
 msgstr "Incoming Shipments"
 
 #: .\server\settings.py:146

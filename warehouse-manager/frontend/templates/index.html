@@ -11,11 +11,11 @@
             <h1 class="text-xl font-bold">@ Managing Warehouse</h1>
             <nav class="mt-5">
                 <ul>
-                    <li class="py-2"><a href="#" class="hover:text-gray-400">{% trans "index.overview" %}</a></li>
-                    <li class="py-2"><a href="#" class="hover:text-gray-400">{% trans "index.items" %}</a></li>
-                    <li class="py-2"><a href="#" class="hover:text-gray-400">{% trans "index.orders" %}</a></li>
-                    <li class="py-2"><a href="#" class="hover:text-gray-400">{% trans "index.suppliers" %}</a></li>
-                    <li class="py-2"><a href="#" class="hover:text-gray-400">{% trans "index.settings" %}</a></li>
+                    <li class="py-2"><a href="{% url 'index' %}" class="hover:text-gray-400">{% trans "frontend.index.overview" %}</a></li>
+                    <li class="py-2"><a href="#" class="hover:text-gray-400">{% trans "frontend.index.items" %}</a></li>
+                    <li class="py-2"><a href="#" class="hover:text-gray-400">{% trans "frontend.index.orders" %}</a></li>
+                    <li class="py-2"><a href="#" class="hover:text-gray-400">{% trans "frontend.index.suppliers" %}</a></li>
+                    <li class="py-2"><a href="#" class="hover:text-gray-400">{% trans "frontend.index.settings" %}</a></li>
                 </ul>
             </nav>
         </aside>
@@ -24,30 +24,30 @@
         <main class="flex-1 p-6">
             <header class="flex justify-between items-center">
                 <div class="header-left">
-                    <h1 class="text-2xl font-semibold">{% trans "index.welcome_back" %}</h1>
+                    <h1 class="text-2xl font-semibold">{% trans "frontend.index.welcome_back" %}</h1>
                 </div>
                 <div class="header-right">
-                    <input type="text" placeholder='{% trans "index.search" %}' class="search-input">
-                    <span class="user">[User]</span>
+                    <input type="text" placeholder='{% trans "frontend.index.search" %}' class="search-input">
+                    <span class="user">{{ user }}</span>
                 </div>
             </header>
-            
+
             <!-- Stats Cards -->
             <div class="grid grid-cols-4 gap-6 mt-6 mr-10">
                 <div class="bg-black text-white p-5 rounded-2xl h-40 flex flex-col justify-center">
-                    <h3 class="text-lg">{% trans "index.total" %}</h3>
-                    <p class="text-2xl font-bold">$9,328.55</p>
+                    <h3 class="text-lg">{% trans "frontend.index.total" %}</h3>
+                    <p class="text-2xl font-bold">{{ orders_sum }}</p>
                 </div>
                 <div class="bg-white p-5 rounded-2xl shadow h-40 flex flex-col justify-center">
-                    <h3 class="text-lg">{% trans "index.active_orders" %}</h3>
+                    <h3 class="text-lg">{% trans "frontend.index.active_orders" %}</h3>
                     <p class="text-2xl font-bold">963</p>
                 </div>
                 <div class="bg-white p-5 rounded-2xl shadow h-40 flex flex-col justify-center">
-                    <h3 class="text-lg">{% trans "index.critical_stocks" %}</h3>
+                    <h3 class="text-lg">{% trans "frontend.index.critical_stocks" %}</h3>
                     <p class="text-2xl font-bold">7</p>
                 </div>
                 <div class="bg-white p-5 rounded-2xl shadow h-40 flex flex-col justify-center">
-                    <h3 class="text-lg">{% trans "index.incoming_shipments" %}</h3>
+                    <h3 class="text-lg">{% trans "frontend.index.incoming_shipments" %}</h3>
                     <p class="text-2xl font-bold">74</p>
                 </div>
             </div>

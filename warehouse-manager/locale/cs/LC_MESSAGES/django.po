@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-23 22:11+0100\n"
+"POT-Creation-Date: 2025-03-24 12:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -132,47 +132,52 @@ msgid "stock.min_quantity"
 msgstr "Minimální množství"
 
 #: .\frontend\templates\index.html:14
-msgid "index.overview"
+msgid "frontend.index.overview"
 msgstr "Přehled"
 
 #: .\frontend\templates\index.html:15
+<<<<<<< Updated upstream
 msgid "index.items"
 msgstr "Položky"
+=======
+msgid "frontend.index.items"
+msgstr "Itemy"
+>>>>>>> Stashed changes
 
 #: .\frontend\templates\index.html:16
-msgid "index.orders"
+msgid "frontend.index.orders"
 msgstr "Objednávky"
 
 #: .\frontend\templates\index.html:17
-msgid "index.suppliers"
+msgid "frontend.index.suppliers"
 msgstr "Dodavatelé"
 
 #: .\frontend\templates\index.html:18
-msgid "index.settings"
+msgid "frontend.index.settings"
 msgstr "Nastavení"
 
 #: .\frontend\templates\index.html:27
-msgid "index.welcome_back"
+msgid "frontend.index.welcome_back"
 msgstr "Vítej zpět"
 
 #: .\frontend\templates\index.html:30
-msgid "index.search"
+msgid "frontend.index.search"
 msgstr "Hledat..."
 
 #: .\frontend\templates\index.html:38
-msgid "index.total"
+msgid "frontend.index.total"
 msgstr "Celkem"
 
 #: .\frontend\templates\index.html:42
-msgid "index.active_orders"
+msgid "frontend.index.active_orders"
 msgstr "Aktivní objednávky"
 
 #: .\frontend\templates\index.html:46
-msgid "index.critical_stocks"
+msgid "frontend.index.critical_stocks"
 msgstr "Kriticné zásoby"
 
 #: .\frontend\templates\index.html:50
-msgid "index.incoming_shipments"
+msgid "frontend.index.incoming_shipments"
 msgstr "Příchozí zásilky"
 
 #: .\server\settings.py:146

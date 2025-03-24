@@ -3,3 +3,10 @@ django-admin makemessages -a
 
 # Will compile the translations
 django-admin compilemessages
+
+# Will collect static files
+python manage.py collectstatic
+
+
+# Will generate the amount of random data based on provided NUMBER
+python manage.py generate_data NUMBER
