@@ -65,7 +65,7 @@ msgstr "Dodavatel"
 
 #: .\database\models.py:29
 msgid "item.status"
-msgstr "Status"
+msgstr "Stav"
 
 #: .\database\models.py:30
 msgid "item.created_at"
@@ -93,7 +93,7 @@ msgstr "Zrušeno"
 
 #: .\database\models.py:45
 msgid "order.item"
-msgstr "Item"
+msgstr "Položky"
 
 #: .\database\models.py:46
 msgid "order.order_date"
@@ -105,7 +105,7 @@ msgstr "Množství"
 
 #: .\database\models.py:48
 msgid "order.status"
-msgstr "Status"
+msgstr "Stav"
 
 #: .\database\models.py:53
 msgid "warehouse.name"
@@ -117,7 +117,7 @@ msgstr "Lokace"
 
 #: .\database\models.py:61
 msgid "stock.item"
-msgstr "Item"
+msgstr "Položka"
 
 #: .\database\models.py:62
 msgid "stock.warehouse"
@@ -137,7 +137,7 @@ msgstr "Přehled"
 
 #: .\frontend\templates\index.html:15
 msgid "index.items"
-msgstr "Itemy"
+msgstr "Položky"
 
 #: .\frontend\templates\index.html:16
 msgid "index.orders"
