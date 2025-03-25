@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}Login{% endblock %}
+
+{% block main %}
+    <div class="login-container">
+        <h2>{% trans "frontend.login.login_text" %}</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">{% trans "frontend.login.login_btn" %}</button>
+        </form>
+    </div>
+{% endblock %}

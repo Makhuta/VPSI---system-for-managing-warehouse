@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-24 12:33+0100\n"
+"POT-Creation-Date: 2025-03-25 17:35+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,176 +19,223 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n "
 "<= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
-#: .\database\models.py:8
-msgid "supplier.name"
-msgstr "Název"
+#: .\database\forms.py:10
+msgid "database.forms.userconfig.language"
+msgstr "Jazyk"
 
-#: .\database\models.py:9
-msgid "supplier.contact"
-msgstr "Kontakt"
+#: .\database\forms.py:11
+msgid "database.forms.userconfig.currency"
+msgstr "Měna"
 
-#: .\database\models.py:10
-msgid "supplier.phone"
-msgstr "Telefon"
+#: .\database\forms.py:14
+msgid "database.forms.userconfig.language_help_text"
+msgstr "Vyberte vámi preferovaný jazyk"
+
+#: .\database\forms.py:15
+msgid "database.forms.userconfig.currency_help_text"
+msgstr "Vyberte vámi preferovanou měnu"
 
 #: .\database\models.py:11
-msgid "supplier.address"
-msgstr "Adresa"
+msgid "database.supplier.name"
+msgstr "Název"
 
 #: .\database\models.py:12
-msgid "supplier.created_at"
+msgid "database.supplier.contact"
+msgstr "Kontakt"
+
+#: .\database\models.py:13
+msgid "database.supplier.phone"
+msgstr "Telefon"
+
+#: .\database\models.py:14
+msgid "database.supplier.address"
+msgstr "Adresa"
+
+#: .\database\models.py:15
+msgid "database.supplier.created_at"
 msgstr "Vatvořeno"
 
-#: .\database\models.py:20
-msgid "item.active"
+#: .\database\models.py:85
+msgid "database.item.active"
 msgstr "Aktivní"
 
-#: .\database\models.py:21
-msgid "item.inactive"
+#: .\database\models.py:86
+msgid "database.item.inactive"
 msgstr "Neaktivní"
 
-#: .\database\models.py:25
-msgid "item.name"
+#: .\database\models.py:90
+msgid "database.item.name"
 msgstr "Název"
 
-#: .\database\models.py:26
-msgid "item.category"
+#: .\database\models.py:91
+msgid "database.item.category"
 msgstr "Kategorie"
 
-#: .\database\models.py:27
-msgid "item.price"
+#: .\database\models.py:92
+msgid "database.item.price"
 msgstr "Cena"
 
-#: .\database\models.py:28
-msgid "item.supplier"
+#: .\database\models.py:93
+msgid "database.item.supplier"
 msgstr "Dodavatel"
 
-#: .\database\models.py:29
-msgid "item.status"
+#: .\database\models.py:94
+msgid "database.item.status"
 msgstr "Stav"
 
-#: .\database\models.py:30
-msgid "item.created_at"
+#: .\database\models.py:95
+msgid "database.item.created_at"
 msgstr "Vytvořeno"
 
-#: .\database\models.py:31
-msgid "item.updated_at"
+#: .\database\models.py:96
+msgid "database.item.updated_at"
 msgstr "Upraveno"
 
-#: .\database\models.py:38
-msgid "order.pending"
+#: .\database\models.py:117
+msgid "database.order.pending"
 msgstr "Čeká"
 
-#: .\database\models.py:39
-msgid "order.approved"
+#: .\database\models.py:118
+msgid "database.order.approved"
 msgstr "Schváleno"
 
-#: .\database\models.py:40
-msgid "order.delivered"
+#: .\database\models.py:119
+msgid "database.order.delivered"
 msgstr "Doručeno"
 
-#: .\database\models.py:41
-msgid "order.canceled"
+#: .\database\models.py:120
+msgid "database.order.canceled"
 msgstr "Zrušeno"
 
-#: .\database\models.py:45
-msgid "order.item"
-msgstr "Položky"
-
-#: .\database\models.py:46
-msgid "order.order_date"
-msgstr "Datum objednávky"
-
-#: .\database\models.py:47
-msgid "order.quantity"
-msgstr "Množství"
-
-#: .\database\models.py:48
-msgid "order.status"
-msgstr "Stav"
-
-#: .\database\models.py:53
-msgid "warehouse.name"
-msgstr "Název"
-
-#: .\database\models.py:54
-msgid "warehouse.location"
-msgstr "Lokace"
-
-#: .\database\models.py:61
-msgid "stock.item"
+#: .\database\models.py:124
+msgid "database.order.item"
 msgstr "Položka"
 
-#: .\database\models.py:62
-msgid "stock.warehouse"
-msgstr "Sklad"
+#: .\database\models.py:125
+msgid "database.order.order_date"
+msgstr "Datum objednávky"
 
-#: .\database\models.py:63
-msgid "stock.quantity"
+#: .\database\models.py:126
+msgid "database.order.quantity"
 msgstr "Množství"
 
-#: .\database\models.py:64
-msgid "stock.min_quantity"
+#: .\database\models.py:127
+msgid "database.order.status"
+msgstr "Stav"
+
+#: .\database\models.py:144
+msgid "database.warehouse.name"
+msgstr "Název"
+
+#: .\database\models.py:145
+msgid "database.warehouse.location"
+msgstr "Lokace"
+
+#: .\database\models.py:162
+msgid "database.stock.item"
+msgstr "Položka"
+
+#: .\database\models.py:163
+msgid "database.stock.warehouse"
+msgstr "Sklad"
+
+#: .\database\models.py:164
+msgid "database.stock.quantity"
+msgstr "Množství"
+
+#: .\database\models.py:165
+msgid "database.stock.min_quantity"
 msgstr "Minimální množství"
 
-#: .\frontend\templates\index.html:14
+#: .\database\models.py:194
+msgid "database.userconfig.language"
+msgstr "Jazyk"
+
+#: .\database\models.py:195
+msgid "database.userconfig.currency"
+msgstr "Měna"
+
+#: .\frontend\templates\index.html:18 .\frontend\templates\settings.html:14
 msgid "frontend.index.overview"
 msgstr "Přehled"
 
-#: .\frontend\templates\index.html:15
-<<<<<<< Updated upstream
-msgid "index.items"
-msgstr "Položky"
-=======
+#: .\frontend\templates\index.html:19 .\frontend\templates\settings.html:15
 msgid "frontend.index.items"
-msgstr "Itemy"
->>>>>>> Stashed changes
+msgstr "Položky"
 
-#: .\frontend\templates\index.html:16
+#: .\frontend\templates\index.html:20 .\frontend\templates\settings.html:16
 msgid "frontend.index.orders"
 msgstr "Objednávky"
 
-#: .\frontend\templates\index.html:17
+#: .\frontend\templates\index.html:21 .\frontend\templates\settings.html:17
 msgid "frontend.index.suppliers"
 msgstr "Dodavatelé"
 
-#: .\frontend\templates\index.html:18
+#: .\frontend\templates\index.html:23 .\frontend\templates\settings.html:19
 msgid "frontend.index.settings"
 msgstr "Nastavení"
 
 #: .\frontend\templates\index.html:27
+msgid "frontend.index.logout"
+msgstr "Odhlásit se"
+
+#: .\frontend\templates\index.html:38
 msgid "frontend.index.welcome_back"
 msgstr "Vítej zpět"
 
-#: .\frontend\templates\index.html:30
+#: .\frontend\templates\index.html:41
 msgid "frontend.index.search"
 msgstr "Hledat..."
 
-#: .\frontend\templates\index.html:38
+#: .\frontend\templates\index.html:45 .\frontend\templates\settings.html:37
+msgid "frontend.index.login"
+msgstr "Příhlásit se"
+
+#: .\frontend\templates\index.html:53
 msgid "frontend.index.total"
 msgstr "Celkem"
 
-#: .\frontend\templates\index.html:42
+#: .\frontend\templates\index.html:57
 msgid "frontend.index.active_orders"
 msgstr "Aktivní objednávky"
 
-#: .\frontend\templates\index.html:46
+#: .\frontend\templates\index.html:61
 msgid "frontend.index.critical_stocks"
 msgstr "Kriticné zásoby"
 
-#: .\frontend\templates\index.html:50
+#: .\frontend\templates\index.html:65
 msgid "frontend.index.incoming_shipments"
 msgstr "Příchozí zásilky"
 
-#: .\server\settings.py:146
+#: .\frontend\templates\registration\login.html:9
+msgid "frontend.login.login_text"
+msgstr "Přihlášení"
+
+#: .\frontend\templates\registration\login.html:13
+msgid "frontend.login.login_btn"
+msgstr "Přihlásit se"
+
+#: .\frontend\templates\settings.html:30
+msgid "frontend.settings.settings"
+msgstr "Nastavení"
+
+#: .\frontend\templates\settings.html:33
+msgid "frontend.settings.search"
+msgstr "Hledat..."
+
+#: .\frontend\templates\settings.html:45
+msgid "frondend.settings.save_changes"
+msgstr "Uložit změny"
+
+#: .\server\settings.py:149
 msgid "langs.english"
 msgstr "Angličtina"
 
-#: .\server\settings.py:147
+#: .\server\settings.py:150
 msgid "langs.czech"
 msgstr "Čeština"
 
-#: .\server\settings.py:148
+#: .\server\settings.py:151
 msgid "langs.slovak"
 msgstr "Slovenština"
 

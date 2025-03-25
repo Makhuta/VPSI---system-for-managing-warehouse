@@ -1,12 +1,8 @@
 {% extends "base.html" %}
 {% load static %}
 {% load i18n %}
-{% load convert_currency %}
-{% load sum_objects %}
-{% load is_in %}
-{% load critical_stocks %}
 
-{% block title %}Warehouse Dashboard{% endblock %}
+{% block title %}User Config{% endblock %}
 
 {% block main %}
     <div class="flex h-screen">
@@ -35,10 +31,10 @@
         <main class="flex-1 p-6">
             <header class="flex justify-between items-center">
                 <div class="header-left">
-                    <h1 class="text-2xl font-semibold">{% trans "frontend.index.welcome_back" %}</h1>
+                    <h1 class="text-2xl font-semibold">{% trans "frontend.settings.settings" %}</h1>
                 </div>
                 <div class="header-right">
-                    <input type="text" placeholder='{% trans "frontend.index.search" %}' class="search-input">
+                    <input type="text" placeholder='{% trans "frontend.settings.search" %}' class="search-input">
                     {% if user.is_authenticated %}
                         <span class="user">{{ user }}</span>
                     {% else %}
@@ -47,25 +43,11 @@
                 </div>
             </header>
 
-            <!-- Stats Cards -->
-            <div class="grid grid-cols-4 gap-6 mt-6 mr-10">
-                <div class="bg-black text-white p-5 rounded-2xl h-40 flex flex-col justify-center">
-                    <h3 class="text-lg">{% trans "frontend.index.total" %}</h3>
-                    <p class="text-2xl font-bold">{{ orders|sum_objects:"item.price"|convert_currency:user_config.currency }}</p>
-                </div>
-                <div class="bg-white p-5 rounded-2xl shadow h-40 flex flex-col justify-center">
-                    <h3 class="text-lg">{% trans "frontend.index.active_orders" %}</h3>
-                    <p class="text-2xl font-bold">{{ orders|is_in:"status,approved"|length }}</p>
-                </div>
-                <div class="bg-white p-5 rounded-2xl shadow h-40 flex flex-col justify-center">
-                    <h3 class="text-lg">{% trans "frontend.index.critical_stocks" %}</h3>
-                    <p class="text-2xl font-bold">{{ stocks|critical_stocks|length }}</p>
-                </div>
-                <div class="bg-white p-5 rounded-2xl shadow h-40 flex flex-col justify-center">
-                    <h3 class="text-lg">{% trans "frontend.index.incoming_shipments" %}</h3>
-                    <p class="text-2xl font-bold">{{ orders|is_in:"status,pending"|length }}</p>
-                </div>
-            </div>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}  <!-- Render the form fields as paragraphs -->
+                <button type="submit">{% trans "frondend.settings.save_changes" %}</button>
+            </form>
         </main>
     </div>
 {% endblock %}

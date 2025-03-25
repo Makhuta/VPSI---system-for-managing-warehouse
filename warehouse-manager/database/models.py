@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 import random
+from django.conf import settings
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -123,6 +125,9 @@ class Order(models.Model):
     order_date = models.DateTimeField(auto_now_add=True, verbose_name=_('database.order.order_date'))
     quantity = models.IntegerField(verbose_name=_('database.order.quantity'))
     status = models.CharField(max_length=10, choices=ORDER_STATUS, default='pending', verbose_name=_('database.order.status'))
+
+    def __str__(self):
+        return f'{self.item} ({self.status})'
     
     def generate():
         ITEMS = list(Item.objects.all())
@@ -174,3 +179,21 @@ class Stocks(models.Model):
             min_quantity=random.randint(1, 50)
         )
         generated.save()
+
+
+
+
+
+class UserConfig(models.Model):
+    CURRENCY = [
+        ("eur", "EUR"),
+        ("usd", "USD"),
+        ("czk", "CZK"),
+    ]
+
+    language = models.CharField(max_length=10, choices=settings.LANGUAGES, default=settings.LANGUAGE_CODE, verbose_name=_('database.userconfig.language'))
+    currency = models.CharField(max_length=5, choices=CURRENCY, default="eur", verbose_name=_('database.userconfig.currency'))
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
+
+    def __str__(self):
+        return f'Config for {self.user}'
