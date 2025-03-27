@@ -1,7 +1,7 @@
 ---
 name: 'Backend: Enhancement name'
 about: Describe the enhancement purpose here.
-title: ''
+title: 'Backend: Enhancement name'
 labels: enhancement
 assignees: bad-account, Makhuta, masekdan
 

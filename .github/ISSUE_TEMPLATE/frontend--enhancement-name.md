@@ -1,7 +1,7 @@
 ---
 name: 'Frontend: Enhancement name'
 about: Describe the enhancement purpose here.
-title: ''
+title: 'Frontend: Enhancement name'
 labels: enhancement
 assignees: Eva-74, IJEN00, z1gyy
 
