@@ -3,6 +3,8 @@ from django.utils.translation import activate
 from database.models import *
 from database.forms import *
 
+from django.core.paginator import Paginator
+
 def custom_render(request, template_name, context={}):
     default_context = {
     }
@@ -19,8 +21,21 @@ def custom_render(request, template_name, context={}):
 
 # Create your views here.
 def index(request):
-    return custom_render(request, 'index.html', {'user': request.user, 'orders': list(Order.objects.all()), "stocks": list(Stocks.objects.all())})
+    return custom_render(request, 'index.html', {
+        'user': request.user,
+        'orders': list(Order.objects.all()),
+        'stocks': list(Stocks.objects.all()),
+        'items': list(Item.objects.all())
+    })
 
+def items(request):
+    item_list = Item.objects.all()
+    paginator = Paginator(item_list, 10)  
+
+    page_number = request.GET.get('page')  
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'items.html', {'page_obj': page_obj})
 
 def page_settings(request):
     context = {}

@@ -206,6 +206,26 @@ msgstr "Critical Stocks"
 msgid "frontend.index.incoming_shipments"
 msgstr "Incoming Shipments"
 
+#: .\frontend\templates\index.html:73
+msgid "frontend.index.sales_performance"
+msgstr "Sales Performance"
+
+#: .\frontend\templates\index.html:79
+msgid "frontend.index.category_distribution"
+msgstr "Category Distribution"
+
+#: .\frontend\templates\index.html:98
+msgid "frontend.index.earnings"
+msgstr "Earnings"
+
+#: .\frontend\templates\index.html:104
+msgid "frontend.index.costs"
+msgstr "Costs"
+
+#: .\frontend\templates\index.html:123
+msgid "frontend.index.sales_share"
+msgstr "Sales Share"
+
 #: .\frontend\templates\registration\login.html:9
 msgid "frontend.login.login_text"
 msgstr "Login"

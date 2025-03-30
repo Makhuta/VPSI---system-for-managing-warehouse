@@ -21,3 +21,12 @@ header {
 .user {
     font-weight: bold;
 }
+#salesChart, #categoryChart {
+    width: 100% !important;
+    height: 300px !important;
+}
+.table-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+}

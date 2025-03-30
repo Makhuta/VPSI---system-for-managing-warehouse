@@ -207,6 +207,26 @@ msgstr "Kriticné zásoby"
 msgid "frontend.index.incoming_shipments"
 msgstr "Příchozí zásilky"
 
+#: .\frontend\templates\index.html:73
+msgid "frontend.index.sales_performance"
+msgstr "Výkon prodeje"
+
+#: .\frontend\templates\index.html:79
+msgid "frontend.index.category_distribution"
+msgstr "Rozložení kategorií"
+
+#: .\frontend\templates\index.html:98
+msgid "frontend.index.earnings"
+msgstr "Příjmy"
+
+#: .\frontend\templates\index.html:104
+msgid "frontend.index.costs"
+msgstr "Náklady"
+
+#: .\frontend\templates\index.html:123
+msgid "frontend.index.sales_share"
+msgstr "Podíl prodejů"
+
 #: .\frontend\templates\registration\login.html:9
 msgid "frontend.login.login_text"
 msgstr "Přihlášení"
