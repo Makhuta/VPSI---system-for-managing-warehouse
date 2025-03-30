@@ -1,5 +1,5 @@
 # Will make messages for specified languages in folder 'locale' (needs to be runned inside the project) where the translations can be defined
-django-admin makemessages -a
+python manage.py make-messages -a
 
 # Will compile the translations
 django-admin compilemessages
