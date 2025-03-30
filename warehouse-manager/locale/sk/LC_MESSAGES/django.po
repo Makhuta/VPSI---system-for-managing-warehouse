@@ -21,19 +21,19 @@ msgstr ""
 
 #: .\database\forms.py:10
 msgid "database.forms.userconfig.language"
-msgstr ""
+msgstr "jazyk"
 
 #: .\database\forms.py:11
 msgid "database.forms.userconfig.currency"
-msgstr ""
+msgstr "mena"
 
 #: .\database\forms.py:14
 msgid "database.forms.userconfig.language_help_text"
-msgstr ""
+msgstr "Vyberte vami preferovaný jazyk"
 
 #: .\database\forms.py:15
 msgid "database.forms.userconfig.currency_help_text"
-msgstr ""
+msgstr "Vyberte vami preferovanú menu"
 
 #: .\database\models.py:11
 msgid "database.supplier.name"
@@ -157,31 +157,31 @@ msgstr ""
 
 #: .\frontend\templates\base.html:27
 msgid "frontend.index.overview"
-msgstr "prehľad"
+msgstr "Prehľad"
 
 #: .\frontend\templates\base.html:28
 msgid "frontend.index.items"
-msgstr "položky"
+msgstr "Položky"
 
 #: .\frontend\templates\base.html:29
 msgid "frontend.index.orders"
-msgstr "objednávky"
+msgstr "Objednávky"
 
 #: .\frontend\templates\base.html:30
 msgid "frontend.index.suppliers"
-msgstr "dodávatelia"
+msgstr "Dodávatelia"
 
 #: .\frontend\templates\base.html:32
 msgid "frontend.index.settings"
-msgstr "nastavenia"
+msgstr "Nastavenia"
 
 #: .\frontend\templates\base.html:36
 msgid "frontend.index.logout"
-msgstr "odhlásiť"
+msgstr "Odhlásiť"
 
 #: .\frontend\templates\header_bar.html:6
 msgid "frontend.index.welcome_back"
-msgstr "vitajte späť"
+msgstr "Vitajte späť"
 
 #: .\frontend\templates\header_bar.html:9
 msgid "frontend.index.search"

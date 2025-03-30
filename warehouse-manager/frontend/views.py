@@ -1,6 +1,8 @@
 from django.shortcuts import render, redirect
 from django.utils.translation import activate
 from collections import defaultdict
+from django.conf import settings
+from database.models import UserConfig
 from database.models import *
 from database.forms import *
 
@@ -64,4 +66,9 @@ def page_settings(request):
 
         # Add the form to the context
         context["form"] = form
+        context["currencies"] = UserConfig.CURRENCY
+        context["languages"] = settings.LANGUAGES
+        context["current_language"] = user_config.language  
+        context["current_currency"] = user_config.currency
+        
     return custom_render(request, 'settings.html', context)

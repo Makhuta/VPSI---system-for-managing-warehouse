@@ -2,17 +2,46 @@
 {% load static %}
 {% load i18n %}
 
-{% block title %}User Config{% endblock %}
+{% block title %}{% trans "frontend.index.settings" %}{% endblock %}
 
 {% block main %}
-    <!-- Main Content -->
-    <main class="flex-1 p-6">
-        {% include "header_bar.html" %}
-
+<main class="flex-1 p-6">
+    {% include "header_bar.html" %}
+    
+    <div class="settings mx-auto max-w-md bg-white p-8 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold mb-4">{% trans "frontend.index.settings" %}</h2>
+        
         <form method="post">
             {% csrf_token %}
-            {{ form.as_p }}  <!-- Render the form fields as paragraphs -->
-            <button type="submit">{% trans "frondend.settings.save_changes" %}</button>
+
+            <!-- Language Selector -->
+            <div class="mb-4">
+                <label for="language" class="block text-gray-700 mb-1">{% trans "database.forms.userconfig.language_help_text" %}</label>
+                <select id="language" name="language" class="w-full p-2 border border-gray-300 rounded-lg">
+                    {% for code, label in languages %}
+                        <option value="{{ code }}" {% if current_language == code %}selected{% endif %}>
+                            {{ label }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <!-- Currency Selector -->
+            <div class="mb-4">
+                <label for="currency" class="block text-gray-700 mb-1">{% trans "database.forms.userconfig.currency_help_text" %}</label>
+                <select id="currency" name="currency" class="w-full p-2 border border-gray-300 rounded-lg">
+                    {% for code, label in currencies %}
+                        <option value="{{ code }}" {% if current_currency == code %}selected{% endif %}>
+                            {{ label }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+
+            <button type="submit" class="w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition">
+                {% trans "frondend.settings.save_changes" %}
+            </button>
         </form>
-    </main>
+    </div>
+</main>
 {% endblock %}

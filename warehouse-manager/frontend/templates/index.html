@@ -59,8 +59,8 @@
 
     const earningsData = {{ orders|sales_chart_data:"earnings"|safe }};
     const costsData = {{ orders|sales_chart_data:"costs"|safe }};
-    const categoryLabels = {{ items|category_distribution:"labels"|safe }};
-    const categoryCounts = {{ items|category_distribution:"counts"|safe }};
+    const categoryLabels = {{ items|category_distribution:"labels,3"|safe }};
+    const categoryCounts = {{ items|category_distribution:"counts,3"|safe }};
 
     // Line Chart – Sales Performance
     const salesCtx = document.getElementById('salesChart').getContext('2d');
