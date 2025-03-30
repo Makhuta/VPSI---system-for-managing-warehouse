@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-25 17:35+0100\n"
+"POT-Creation-Date: 2025-03-30 15:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -154,77 +154,121 @@ msgstr "Language"
 msgid "database.userconfig.currency"
 msgstr "Currency"
 
-#: .\frontend\templates\index.html:18 .\frontend\templates\settings.html:14
+#: .\frontend\templates\base.html:27
 msgid "frontend.index.overview"
 msgstr "Overview"
 
-#: .\frontend\templates\index.html:19 .\frontend\templates\settings.html:15
+#: .\frontend\templates\base.html:28
 msgid "frontend.index.items"
 msgstr "Items"
 
-#: .\frontend\templates\index.html:20 .\frontend\templates\settings.html:16
+#: .\frontend\templates\base.html:29
 msgid "frontend.index.orders"
 msgstr "Orders"
 
-#: .\frontend\templates\index.html:21 .\frontend\templates\settings.html:17
+#: .\frontend\templates\base.html:30
 msgid "frontend.index.suppliers"
 msgstr "Suppliers"
 
-#: .\frontend\templates\index.html:23 .\frontend\templates\settings.html:19
+#: .\frontend\templates\base.html:32
 msgid "frontend.index.settings"
 msgstr "Settings"
 
-#: .\frontend\templates\index.html:27
+#: .\frontend\templates\base.html:36
 msgid "frontend.index.logout"
 msgstr "Logout"
 
-#: .\frontend\templates\index.html:38
+#: .\frontend\templates\header_bar.html:6
 msgid "frontend.index.welcome_back"
 msgstr "Welcome Back"
 
-#: .\frontend\templates\index.html:41
+#: .\frontend\templates\header_bar.html:9
 msgid "frontend.index.search"
 msgstr "Search..."
 
-#: .\frontend\templates\index.html:45 .\frontend\templates\settings.html:37
+#: .\frontend\templates\header_bar.html:13
 msgid "frontend.index.login"
 msgstr "Login"
 
-#: .\frontend\templates\index.html:53
+#: .\frontend\templates\index.html:21
 msgid "frontend.index.total"
 msgstr "Total"
 
-#: .\frontend\templates\index.html:57
+#: .\frontend\templates\index.html:25
 msgid "frontend.index.active_orders"
 msgstr "Active Orders"
 
-#: .\frontend\templates\index.html:61
+#: .\frontend\templates\index.html:29
 msgid "frontend.index.critical_stocks"
 msgstr "Critical Stocks"
 
-#: .\frontend\templates\index.html:65
+#: .\frontend\templates\index.html:33
 msgid "frontend.index.incoming_shipments"
 msgstr "Incoming Shipments"
 
-#: .\frontend\templates\index.html:73
+#: .\frontend\templates\index.html:41
 msgid "frontend.index.sales_performance"
 msgstr "Sales Performance"
 
-#: .\frontend\templates\index.html:79
+#: .\frontend\templates\index.html:47
 msgid "frontend.index.category_distribution"
 msgstr "Category Distribution"
 
-#: .\frontend\templates\index.html:98
+#: .\frontend\templates\index.html:73
 msgid "frontend.index.earnings"
 msgstr "Earnings"
 
-#: .\frontend\templates\index.html:104
+#: .\frontend\templates\index.html:79
 msgid "frontend.index.costs"
 msgstr "Costs"
 
-#: .\frontend\templates\index.html:123
+#: .\frontend\templates\index.html:99
 msgid "frontend.index.sales_share"
 msgstr "Sales Share"
+
+#: .\frontend\templates\items.html:17
+msgid "frontend.items.warehouses.all"
+msgstr "All Warehouses"
+
+#: .\frontend\templates\items.html:20
+msgid "frontend.items.sort_by"
+msgstr "Sort by:"
+
+#: .\frontend\templates\items.html:23
+msgid "frontend.items.add_product"
+msgstr "+ Add Product"
+
+#: .\frontend\templates\items.html:28
+msgid "frontend.items.id"
+msgstr "ID"
+
+#: .\frontend\templates\items.html:29
+msgid "frontend.items.name"
+msgstr "Name"
+
+#: .\frontend\templates\items.html:30
+msgid "frontend.items.status"
+msgstr "Status"
+
+#: .\frontend\templates\items.html:31
+msgid "frontend.items.category"
+msgstr "Category"
+
+#: .\frontend\templates\items.html:32
+msgid "frontend.items.price"
+msgstr "Price"
+
+#: .\frontend\templates\items.html:33
+msgid "frontend.items.warehouse"
+msgstr "Warehouse"
+
+#: .\frontend\templates\items.html:34
+msgid "frontend.items.date"
+msgstr "Date"
+
+#: .\frontend\templates\items.html:50
+msgid "frontend.items.no_items_found"
+msgstr "No Items Found"
 
 #: .\frontend\templates\registration\login.html:9
 msgid "frontend.login.login_text"
@@ -234,15 +278,7 @@ msgstr "Login"
 msgid "frontend.login.login_btn"
 msgstr "Login"
 
-#: .\frontend\templates\settings.html:30
-msgid "frontend.settings.settings"
-msgstr "Settings"
-
-#: .\frontend\templates\settings.html:33
-msgid "frontend.settings.search"
-msgstr "Search..."
-
-#: .\frontend\templates\settings.html:45
+#: .\frontend\templates\settings.html:15
 msgid "frondend.settings.save_changes"
 msgstr "Save changes"
 
@@ -257,6 +293,12 @@ msgstr "Czech"
 #: .\server\settings.py:151
 msgid "langs.slovak"
 msgstr "Slovak"
+
+#~ msgid "frontend.settings.settings"
+#~ msgstr "Settings"
+
+#~ msgid "frontend.settings.search"
+#~ msgstr "Search..."
 
 #~ msgid "hello_world"
 #~ msgstr "Hello World"
