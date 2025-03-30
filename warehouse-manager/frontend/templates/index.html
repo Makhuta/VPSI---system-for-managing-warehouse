@@ -5,6 +5,8 @@
 {% load sum_objects %}
 {% load is_in %}
 {% load critical_stocks %}
+{% load sales_chart_data %}
+{% load category_distribution %}
 
 {% block title %}Warehouse Dashboard{% endblock %}
 
@@ -16,7 +18,7 @@
             <nav class="mt-5">
                 <ul>
                     <li class="py-2"><a href="{% url 'index' %}" class="hover:text-gray-400">{% trans "frontend.index.overview" %}</a></li>
-                    <li class="py-2"><a href="#" class="hover:text-gray-400">{% trans "frontend.index.items" %}</a></li>
+                    <li class="py-2"><a href="{% url 'items' %}" class="hover:text-gray-400">{% trans "frontend.index.items" %}</a></li>
                     <li class="py-2"><a href="#" class="hover:text-gray-400">{% trans "frontend.index.orders" %}</a></li>
                     <li class="py-2"><a href="#" class="hover:text-gray-400">{% trans "frontend.index.suppliers" %}</a></li>
                     {% if user.is_authenticated %}
@@ -66,6 +68,96 @@
                     <p class="text-2xl font-bold">{{ orders|is_in:"status,pending"|length }}</p>
                 </div>
             </div>
+
+            <!-- Charts -->
+            <div class="mt-10 grid gap-6 mr-10" style="grid-template-columns: 2.5fr 1.5fr;">
+                <div class="bg-white p-5 rounded-2xl shadow">
+                    <h3 class="text-lg font-semibold">{% trans "frontend.index.sales_performance" %}</h3>
+                    <div class="flex-1">
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-2xl shadow">
+                    <h3 class="text-lg font-semibold">{% trans "frontend.index.category_distribution" %}</h3>
+                    <div class="flex-1">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    const salesLabels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+    const earningsData = {{ orders|sales_chart_data:"earnings"|safe }};
+    const costsData = {{ orders|sales_chart_data:"costs"|safe }};
+    const categoryLabels = {{ items|category_distribution:"labels"|safe }};
+    const categoryCounts = {{ items|category_distribution:"counts"|safe }};
+
+    // Line Chart – Sales Performance
+    const salesCtx = document.getElementById('salesChart').getContext('2d');
+    new Chart(salesCtx, {
+        type: 'line',
+        data: {
+            labels: salesLabels,
+            datasets: [
+                {
+                    label: '{% trans "frontend.index.earnings" %}',
+                    data: earningsData,
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                },
+                {
+                    label: '{% trans "frontend.index.costs" %}',
+                    data: costsData,
+                    borderColor: 'rgb(255, 99, 132)',
+                    tension: 0.1
+                }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false
+        }
+    });
+
+    // Doughnut Chart – Category Distribution
+    const categoryCtx = document.getElementById('categoryChart').getContext('2d');
+    new Chart(categoryCtx, {
+        type: 'doughnut',
+        data: {
+            labels: categoryLabels,
+            datasets: [{
+                label: '{% trans "frontend.index.sales_share" %}',
+                data: categoryCounts,
+                backgroundColor: [
+                    'rgb(75, 192, 192)',
+                    'rgb(58, 148, 148)',
+                    'rgb(43, 105, 105)',
+                    'rgb(96, 186, 186)',
+                    'rgb(120, 220, 220)',
+                ]
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            cutout: '70%',
+            layout: {
+                padding: 15
+            },
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        padding: 20
+                    }
+                }
+            }
+        }
+    });
+</script>
 {% endblock %}
