@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.utils.translation import activate
+from collections import defaultdict
 from database.models import *
 from database.forms import *
 
@@ -7,6 +8,7 @@ from django.core.paginator import Paginator
 
 def custom_render(request, template_name, context={}):
     default_context = {
+        'user': request.user,
     }
 
     if request.user.is_authenticated:
@@ -22,20 +24,28 @@ def custom_render(request, template_name, context={}):
 # Create your views here.
 def index(request):
     return custom_render(request, 'index.html', {
-        'user': request.user,
         'orders': list(Order.objects.all()),
         'stocks': list(Stocks.objects.all()),
         'items': list(Item.objects.all())
     })
 
 def items(request):
-    item_list = Item.objects.all()
+    item_list = list(Item.objects.all())
+    stocks = Stocks.objects.select_related('warehouse').all()
+
+    item_warehouse_map = defaultdict(list)
+    for stock in stocks:
+        item_warehouse_map[stock.item_id].append(stock.warehouse)
+
+    for item in item_list:
+        item.warehouses = item_warehouse_map.get(item.id, [])
+
     paginator = Paginator(item_list, 10)  
 
-    page_number = request.GET.get('page')  
+    page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    return render(request, 'items.html', {'page_obj': page_obj})
+    return custom_render(request, 'items.html', {'page_obj': page_obj})
 
 def page_settings(request):
     context = {}
