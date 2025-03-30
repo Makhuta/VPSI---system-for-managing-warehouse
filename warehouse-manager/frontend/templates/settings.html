@@ -5,49 +5,14 @@
 {% block title %}User Config{% endblock %}
 
 {% block main %}
-    <div class="flex h-screen">
-        <!-- Sidebar -->
-        <aside class="w-64 bg-black text-white p-5">
-            <h1 class="text-xl font-bold">@ Managing Warehouse</h1>
-            <nav class="mt-5">
-                <ul>
-                    <li class="py-2"><a href="{% url 'index' %}" class="hover:text-gray-400">{% trans "frontend.index.overview" %}</a></li>
-                    <li class="py-2"><a href="#" class="hover:text-gray-400">{% trans "frontend.index.items" %}</a></li>
-                    <li class="py-2"><a href="#" class="hover:text-gray-400">{% trans "frontend.index.orders" %}</a></li>
-                    <li class="py-2"><a href="#" class="hover:text-gray-400">{% trans "frontend.index.suppliers" %}</a></li>
-                    {% if user.is_authenticated %}
-                        <li class="py-2"><a href="{% url 'settings' %}" class="hover:text-gray-400">{% trans "frontend.index.settings" %}</a></li>
-                    {% else %}
-                    {% endif %}
-                    {% if user.is_authenticated %}
-                        <li class="pt-2"><a href="{% url 'logout' %}" class="hover:text-gray-400">{% trans "frontend.index.logout" %}</a></li>
-                    {% else %}
-                    {% endif %}
-                </ul>
-            </nav>
-        </aside>
-        
-        <!-- Main Content -->
-        <main class="flex-1 p-6">
-            <header class="flex justify-between items-center">
-                <div class="header-left">
-                    <h1 class="text-2xl font-semibold">{% trans "frontend.settings.settings" %}</h1>
-                </div>
-                <div class="header-right">
-                    <input type="text" placeholder='{% trans "frontend.settings.search" %}' class="search-input">
-                    {% if user.is_authenticated %}
-                        <span class="user">{{ user }}</span>
-                    {% else %}
-                        <a href="{% url 'login' %}"><span class="user">{% trans "frontend.index.login" %}</span></a>
-                    {% endif %}
-                </div>
-            </header>
+    <!-- Main Content -->
+    <main class="flex-1 p-6">
+        {% include "header_bar.html" %}
 
-            <form method="post">
-                {% csrf_token %}
-                {{ form.as_p }}  <!-- Render the form fields as paragraphs -->
-                <button type="submit">{% trans "frondend.settings.save_changes" %}</button>
-            </form>
-        </main>
-    </div>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}  <!-- Render the form fields as paragraphs -->
+            <button type="submit">{% trans "frondend.settings.save_changes" %}</button>
+        </form>
+    </main>
 {% endblock %}

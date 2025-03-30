@@ -11,81 +11,46 @@
 {% block title %}Warehouse Dashboard{% endblock %}
 
 {% block main %}
-    <div class="flex h-screen">
-        <!-- Sidebar -->
-        <aside class="w-64 bg-black text-white p-5">
-            <h1 class="text-xl font-bold">@ Managing Warehouse</h1>
-            <nav class="mt-5">
-                <ul>
-                    <li class="py-2"><a href="{% url 'index' %}" class="hover:text-gray-400">{% trans "frontend.index.overview" %}</a></li>
-                    <li class="py-2"><a href="{% url 'items' %}" class="hover:text-gray-400">{% trans "frontend.index.items" %}</a></li>
-                    <li class="py-2"><a href="#" class="hover:text-gray-400">{% trans "frontend.index.orders" %}</a></li>
-                    <li class="py-2"><a href="#" class="hover:text-gray-400">{% trans "frontend.index.suppliers" %}</a></li>
-                    {% if user.is_authenticated %}
-                        <li class="py-2"><a href="{% url 'settings' %}" class="hover:text-gray-400">{% trans "frontend.index.settings" %}</a></li>
-                    {% else %}
-                    {% endif %}
-                    {% if user.is_authenticated %}
-                        <li class="pt-2"><a href="{% url 'logout' %}" class="hover:text-gray-400">{% trans "frontend.index.logout" %}</a></li>
-                    {% else %}
-                    {% endif %}
-                </ul>
-            </nav>
-        </aside>
-        
-        <!-- Main Content -->
-        <main class="flex-1 p-6">
-            <header class="flex justify-between items-center">
-                <div class="header-left">
-                    <h1 class="text-2xl font-semibold">{% trans "frontend.index.welcome_back" %}</h1>
-                </div>
-                <div class="header-right">
-                    <input type="text" placeholder='{% trans "frontend.index.search" %}' class="search-input">
-                    {% if user.is_authenticated %}
-                        <span class="user">{{ user }}</span>
-                    {% else %}
-                        <a href="{% url 'login' %}"><span class="user">{% trans "frontend.index.login" %}</span></a>
-                    {% endif %}
-                </div>
-            </header>
+    <!-- Main Content -->
+    <main class="flex-1 p-6">
+        {% include "header_bar.html" %}
 
-            <!-- Stats Cards -->
-            <div class="grid grid-cols-4 gap-6 mt-6 mr-10">
-                <div class="bg-black text-white p-5 rounded-2xl h-40 flex flex-col justify-center">
-                    <h3 class="text-lg">{% trans "frontend.index.total" %}</h3>
-                    <p class="text-2xl font-bold">{{ orders|sum_objects:"item.price"|convert_currency:user_config.currency }}</p>
-                </div>
-                <div class="bg-white p-5 rounded-2xl shadow h-40 flex flex-col justify-center">
-                    <h3 class="text-lg">{% trans "frontend.index.active_orders" %}</h3>
-                    <p class="text-2xl font-bold">{{ orders|is_in:"status,approved"|length }}</p>
-                </div>
-                <div class="bg-white p-5 rounded-2xl shadow h-40 flex flex-col justify-center">
-                    <h3 class="text-lg">{% trans "frontend.index.critical_stocks" %}</h3>
-                    <p class="text-2xl font-bold">{{ stocks|critical_stocks|length }}</p>
-                </div>
-                <div class="bg-white p-5 rounded-2xl shadow h-40 flex flex-col justify-center">
-                    <h3 class="text-lg">{% trans "frontend.index.incoming_shipments" %}</h3>
-                    <p class="text-2xl font-bold">{{ orders|is_in:"status,pending"|length }}</p>
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-4 gap-6 mt-6 mr-10">
+            <div class="bg-black text-white p-5 rounded-2xl h-40 flex flex-col justify-center">
+                <h3 class="text-lg">{% trans "frontend.index.total" %}</h3>
+                <p class="text-2xl font-bold">{{ orders|sum_objects:"item.price"|convert_currency:user_config.currency }}</p>
+            </div>
+            <div class="bg-white p-5 rounded-2xl shadow h-40 flex flex-col justify-center">
+                <h3 class="text-lg">{% trans "frontend.index.active_orders" %}</h3>
+                <p class="text-2xl font-bold">{{ orders|is_in:"status,approved"|length }}</p>
+            </div>
+            <div class="bg-white p-5 rounded-2xl shadow h-40 flex flex-col justify-center">
+                <h3 class="text-lg">{% trans "frontend.index.critical_stocks" %}</h3>
+                <p class="text-2xl font-bold">{{ stocks|critical_stocks|length }}</p>
+            </div>
+            <div class="bg-white p-5 rounded-2xl shadow h-40 flex flex-col justify-center">
+                <h3 class="text-lg">{% trans "frontend.index.incoming_shipments" %}</h3>
+                <p class="text-2xl font-bold">{{ orders|is_in:"status,pending"|length }}</p>
+            </div>
+        </div>
+
+        <!-- Charts -->
+        <div class="mt-10 grid gap-6 mr-10" style="grid-template-columns: 2.5fr 1.5fr;">
+            <div class="bg-white p-5 rounded-2xl shadow">
+                <h3 class="text-lg font-semibold">{% trans "frontend.index.sales_performance" %}</h3>
+                <div class="flex-1">
+                    <canvas id="salesChart"></canvas>
                 </div>
             </div>
-
-            <!-- Charts -->
-            <div class="mt-10 grid gap-6 mr-10" style="grid-template-columns: 2.5fr 1.5fr;">
-                <div class="bg-white p-5 rounded-2xl shadow">
-                    <h3 class="text-lg font-semibold">{% trans "frontend.index.sales_performance" %}</h3>
-                    <div class="flex-1">
-                        <canvas id="salesChart"></canvas>
-                    </div>
-                </div>
-                <div class="bg-white p-5 rounded-2xl shadow">
-                    <h3 class="text-lg font-semibold">{% trans "frontend.index.category_distribution" %}</h3>
-                    <div class="flex-1">
-                        <canvas id="categoryChart"></canvas>
-                    </div>
+            <div class="bg-white p-5 rounded-2xl shadow">
+                <h3 class="text-lg font-semibold">{% trans "frontend.index.category_distribution" %}</h3>
+                <div class="flex-1">
+                    <canvas id="categoryChart"></canvas>
                 </div>
             </div>
-        </main>
-    </div>
+        </div>
+    </main>
 {% endblock %}
 
 {% block scripts %}
