@@ -5,10 +5,9 @@ from services.models import ServiceConfig
     
 @receiver(post_save, sender=ServiceConfig)
 def add_jobs(sender, instance, update_fields=None, **kwargs):
-    if update_fields and update_fields.intersection({"last_run"}):
+    if update_fields and all([field in ["last_run"] for field in list(update_fields)]):
         print(f"Changes ignored for {instance}, no relevant field changed.")
         return
-    print(update_fields)
     sync_jobs_with_db()
     print(f'Updated job for service: {instance.name}')
     
