@@ -6,4 +6,6 @@ Pillow
 gunicorn
 python-gettext
 currencyconverter
+currency-symbols
+iso4217parse
 apscheduler
