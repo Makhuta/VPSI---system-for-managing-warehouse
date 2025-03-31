@@ -2,6 +2,7 @@ from database.models import Stocks
 import random
 
 def run(**kwargs):
+    print("Simulatinc customers...")
     rng = random.randrange(1, 5)
     
     for round in range(rng):
