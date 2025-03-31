@@ -2,6 +2,7 @@
 {% load static %}
 {% load i18n %}
 {% load convert_currency %}
+{% load stock_sum %}
 {% load sum_objects %}
 {% load is_in %}
 {% load critical_stocks %}
@@ -19,7 +20,7 @@
         <div class="grid grid-cols-4 gap-6 mt-6 mr-10">
             <div class="bg-black text-white p-5 rounded-2xl h-40 flex flex-col justify-center">
                 <h3 class="text-lg">{% trans "frontend.index.total" %}</h3>
-                <p class="text-2xl font-bold">{{ orders|sum_objects:"item.price"|convert_currency:user_config.currency }}</p>
+                <p class="text-2xl font-bold">{{ stocks_history|stock_sum|convert_currency:user_config.currency }}</p>
             </div>
             <div class="bg-white p-5 rounded-2xl shadow h-40 flex flex-col justify-center">
                 <h3 class="text-lg">{% trans "frontend.index.active_orders" %}</h3>
@@ -57,8 +58,8 @@
 <script>
     const salesLabels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
-    const earningsData = {{ orders|sales_chart_data:"earnings"|safe }};
-    const costsData = {{ orders|sales_chart_data:"costs"|safe }};
+    const earningsData = {{ stocks_history|sales_chart_data:"earnings"|safe }};
+    const costsData = {{ stocks_history|sales_chart_data:"costs"|safe }};
     const categoryLabels = {{ items|category_distribution:"labels,3"|safe }};
     const categoryCounts = {{ items|category_distribution:"counts,3"|safe }};
 

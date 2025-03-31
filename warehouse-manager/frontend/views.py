@@ -28,6 +28,7 @@ def index(request):
     return custom_render(request, 'index.html', {
         'orders': list(Order.objects.all()),
         'stocks': list(Stocks.objects.all()),
+        'stocks_history': list(StocksHistory.objects.all()),
         'items': list(Item.objects.all())
     })
 
