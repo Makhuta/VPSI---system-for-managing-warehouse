@@ -2,6 +2,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from apscheduler.triggers.cron import CronTrigger
 from django.utils.timezone import now
 from services.models import ServiceConfig, ServiceFunction
+from server.functions import model_table_exists
 
 from services.apps import scheduler
 
@@ -25,6 +26,8 @@ def sync_jobs_with_db():
     Sync APScheduler jobs with the ServiceConfig database table.
     """
     existing_jobs = {job.id for job in scheduler.get_jobs()}
+    if not model_table_exists(ServiceConfig):
+        return
     db_jobs = {str(config.id): config for config in ServiceConfig.objects.filter(enabled=True)}
 
     # Remove jobs that no longer exist in DB
