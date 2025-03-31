@@ -8,5 +8,6 @@ admin.site.register(Item)
 admin.site.register(Order)
 admin.site.register(Warehouse)
 admin.site.register(Stocks)
+admin.site.register(StocksHistory)
 
 admin.site.register(UserConfig)

@@ -3,6 +3,9 @@ from django.utils.translation import gettext_lazy as _
 import random
 from django.conf import settings
 from django.contrib.auth.models import User
+from currency_converter import CurrencyConverter
+import iso4217parse
+from django.forms.models import model_to_dict
 
 # Create your models here.
 
@@ -166,6 +169,10 @@ class Stocks(models.Model):
 
     def __str__(self):
         return f'{self.item.name}: {self.warehouse.name}'
+    
+    @property
+    def name(self):
+        return f'{self}'
 
 
     def generate():
@@ -179,17 +186,63 @@ class Stocks(models.Model):
             min_quantity=random.randint(1, 50)
         )
         generated.save()
+        
+        
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.__initial = self._dict
+
+    @property
+    def diff(self):
+        d1 = self.__initial
+        d2 = self._dict
+        diffs = [(k, (v, d2[k])) for k, v in d1.items() if v != d2[k]]
+        return dict(diffs)
+
+    @property
+    def has_changed(self):
+        return bool(self.diff)
+
+    @property
+    def changed_fields(self):
+        return self.diff.keys()
+
+    def get_field_diff(self, field_name):
+        """
+        Returns a diff for field if it's changed and None otherwise.
+        """
+        return self.diff.get(field_name, None)
+
+    def save(self, *args, **kwargs):
+        """
+        Saves model and set initial state.
+        """
+        if self.id is not None and 'update_fields' not in kwargs:
+            kwargs.update({'update_fields': self.changed_fields})
+            
+        super().save(*args, **kwargs)
+        self.__initial = self._dict
+
+    @property
+    def _dict(self):
+        return model_to_dict(self, fields=[
+            field.name
+            for field in self._meta.get_fields()
+        ])
 
 
+class StocksHistory(models.Model):
+    stock = models.ForeignKey(Stocks, on_delete=models.CASCADE, null=False, blank=False, verbose_name=_("database.stock_history.stock"))
+    quantity_change = models.IntegerField(default=0, verbose_name=_("database.stock_history.quantity_change"))
+    change_date = models.DateTimeField(auto_now_add=True, editable=False, verbose_name=_('database.stock_history.order_date'))
+
+    def __str__(self):
+        return f'{self.stock} ({self.change_date})'
 
 
 
 class UserConfig(models.Model):
-    CURRENCY = [
-        ("eur", "EUR"),
-        ("usd", "USD"),
-        ("czk", "CZK"),
-    ]
+    CURRENCY = sorted([(c.lower(), iso4217parse.parse(c)[0].name) for c in CurrencyConverter().currencies if iso4217parse.parse(c) is not None], key=lambda i: i[1])
 
     language = models.CharField(max_length=10, choices=settings.LANGUAGES, default=settings.LANGUAGE_CODE, verbose_name=_('database.userconfig.language'))
     currency = models.CharField(max_length=5, choices=CURRENCY, default="eur", verbose_name=_('database.userconfig.currency'))
