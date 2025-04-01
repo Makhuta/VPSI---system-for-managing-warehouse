@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 from django.utils.translation import activate
 from collections import defaultdict
 from django.conf import settings
@@ -50,6 +51,7 @@ def items(request):
 
     return custom_render(request, 'items.html', {'page_obj': page_obj})
 
+@login_required
 def page_settings(request):
     context = {}
     if request.user.is_authenticated:
