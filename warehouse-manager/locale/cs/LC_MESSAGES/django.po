@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-30 15:01+0200\n"
+"POT-Creation-Date: 2025-04-01 02:16+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,131 +27,143 @@ msgstr "Jazyk"
 msgid "database.forms.userconfig.currency"
 msgstr "Měna"
 
-#: .\database\forms.py:14
+#: .\database\forms.py:14 .\frontend\templates\settings.html:19
 msgid "database.forms.userconfig.language_help_text"
 msgstr "Vyberte vámi preferovaný jazyk"
 
-#: .\database\forms.py:15
+#: .\database\forms.py:15 .\frontend\templates\settings.html:31
 msgid "database.forms.userconfig.currency_help_text"
 msgstr "Vyberte vámi preferovanou měnu"
 
-#: .\database\models.py:11
+#: .\database\models.py:14
 msgid "database.supplier.name"
 msgstr "Název"
 
-#: .\database\models.py:12
+#: .\database\models.py:15
 msgid "database.supplier.contact"
 msgstr "Kontakt"
 
-#: .\database\models.py:13
+#: .\database\models.py:16
 msgid "database.supplier.phone"
 msgstr "Telefon"
 
-#: .\database\models.py:14
+#: .\database\models.py:17
 msgid "database.supplier.address"
 msgstr "Adresa"
 
-#: .\database\models.py:15
+#: .\database\models.py:18
 msgid "database.supplier.created_at"
 msgstr "Vatvořeno"
 
-#: .\database\models.py:85
+#: .\database\models.py:88
 msgid "database.item.active"
 msgstr "Aktivní"
 
-#: .\database\models.py:86
+#: .\database\models.py:89
 msgid "database.item.inactive"
 msgstr "Neaktivní"
 
-#: .\database\models.py:90
+#: .\database\models.py:93
 msgid "database.item.name"
 msgstr "Název"
 
-#: .\database\models.py:91
+#: .\database\models.py:94
 msgid "database.item.category"
 msgstr "Kategorie"
 
-#: .\database\models.py:92
+#: .\database\models.py:95
 msgid "database.item.price"
 msgstr "Cena"
 
-#: .\database\models.py:93
+#: .\database\models.py:96
 msgid "database.item.supplier"
 msgstr "Dodavatel"
 
-#: .\database\models.py:94
+#: .\database\models.py:97
 msgid "database.item.status"
 msgstr "Stav"
 
-#: .\database\models.py:95
+#: .\database\models.py:98
 msgid "database.item.created_at"
 msgstr "Vytvořeno"
 
-#: .\database\models.py:96
+#: .\database\models.py:99
 msgid "database.item.updated_at"
 msgstr "Upraveno"
 
-#: .\database\models.py:117
+#: .\database\models.py:120
 msgid "database.order.pending"
 msgstr "Čeká"
 
-#: .\database\models.py:118
+#: .\database\models.py:121
 msgid "database.order.approved"
 msgstr "Schváleno"
 
-#: .\database\models.py:119
+#: .\database\models.py:122
 msgid "database.order.delivered"
 msgstr "Doručeno"
 
-#: .\database\models.py:120
+#: .\database\models.py:123
 msgid "database.order.canceled"
 msgstr "Zrušeno"
 
-#: .\database\models.py:124
+#: .\database\models.py:127
 msgid "database.order.item"
 msgstr "Položka"
 
-#: .\database\models.py:125
+#: .\database\models.py:128
 msgid "database.order.order_date"
 msgstr "Datum objednávky"
 
-#: .\database\models.py:126
+#: .\database\models.py:129
 msgid "database.order.quantity"
 msgstr "Množství"
 
-#: .\database\models.py:127
+#: .\database\models.py:130
 msgid "database.order.status"
 msgstr "Stav"
 
-#: .\database\models.py:144
+#: .\database\models.py:147
 msgid "database.warehouse.name"
 msgstr "Název"
 
-#: .\database\models.py:145
+#: .\database\models.py:148
 msgid "database.warehouse.location"
 msgstr "Lokace"
 
-#: .\database\models.py:162
+#: .\database\models.py:165
 msgid "database.stock.item"
 msgstr "Položka"
 
-#: .\database\models.py:163
+#: .\database\models.py:166
 msgid "database.stock.warehouse"
 msgstr "Sklad"
 
-#: .\database\models.py:164
+#: .\database\models.py:167
 msgid "database.stock.quantity"
 msgstr "Množství"
 
-#: .\database\models.py:165
+#: .\database\models.py:168
 msgid "database.stock.min_quantity"
 msgstr "Minimální množství"
 
-#: .\database\models.py:194
+#: .\database\models.py:235
+msgid "database.stock_history.stock"
+msgstr "Zásoba"
+
+#: .\database\models.py:236
+msgid "database.stock_history.quantity_change"
+msgstr "Změna množství"
+
+#: .\database\models.py:237
+msgid "database.stock_history.order_date"
+msgstr "Datum"
+
+#: .\database\models.py:247
 msgid "database.userconfig.language"
 msgstr "Jazyk"
 
-#: .\database\models.py:195
+#: .\database\models.py:248
 msgid "database.userconfig.currency"
 msgstr "Měna"
 
@@ -171,7 +183,8 @@ msgstr "Objednávky"
 msgid "frontend.index.suppliers"
 msgstr "Dodavatelé"
 
-#: .\frontend\templates\base.html:32
+#: .\frontend\templates\base.html:32 .\frontend\templates\settings.html:5
+#: .\frontend\templates\settings.html:12
 msgid "frontend.index.settings"
 msgstr "Nastavení"
 
@@ -191,39 +204,67 @@ msgstr "Hledat..."
 msgid "frontend.index.login"
 msgstr "Příhlásit se"
 
-#: .\frontend\templates\index.html:21
+#: .\frontend\templates\index.html:22
 msgid "frontend.index.total"
 msgstr "Celkem"
 
-#: .\frontend\templates\index.html:25
+#: .\frontend\templates\index.html:26
 msgid "frontend.index.active_orders"
 msgstr "Aktivní objednávky"
 
-#: .\frontend\templates\index.html:29
+#: .\frontend\templates\index.html:30
 msgid "frontend.index.critical_stocks"
 msgstr "Kriticné zásoby"
 
-#: .\frontend\templates\index.html:33
+#: .\frontend\templates\index.html:34
 msgid "frontend.index.incoming_shipments"
 msgstr "Příchozí zásilky"
 
-#: .\frontend\templates\index.html:41
+#: .\frontend\templates\index.html:42
 msgid "frontend.index.sales_performance"
 msgstr "Výkon prodeje"
 
-#: .\frontend\templates\index.html:47
+#: .\frontend\templates\index.html:48
 msgid "frontend.index.category_distribution"
 msgstr "Rozložení kategorií"
 
-#: .\frontend\templates\index.html:73
+#: .\frontend\templates\index.html:60
+msgid "frontend.index.monday"
+msgstr "Po"
+
+#: .\frontend\templates\index.html:61
+msgid "frontend.index.tuesday"
+msgstr "Út"
+
+#: .\frontend\templates\index.html:62
+msgid "frontend.index.wednesday"
+msgstr "St"
+
+#: .\frontend\templates\index.html:63
+msgid "frontend.index.thursday"
+msgstr "Čt"
+
+#: .\frontend\templates\index.html:64
+msgid "frontend.index.friday"
+msgstr "Pá"
+
+#: .\frontend\templates\index.html:65
+msgid "frontend.index.saturday"
+msgstr "So"
+
+#: .\frontend\templates\index.html:66
+msgid "frontend.index.sunday"
+msgstr "Ne"
+
+#: .\frontend\templates\index.html:88
 msgid "frontend.index.earnings"
 msgstr "Příjmy"
 
-#: .\frontend\templates\index.html:79
+#: .\frontend\templates\index.html:94
 msgid "frontend.index.costs"
 msgstr "Náklady"
 
-#: .\frontend\templates\index.html:99
+#: .\frontend\templates\index.html:114
 msgid "frontend.index.sales_share"
 msgstr "Podíl prodejů"
 
@@ -271,29 +312,28 @@ msgstr "Datum"
 msgid "frontend.items.no_items_found"
 msgstr "Žádná položka nebyla nalezena"
 
-#: .\frontend\templates\registration\login.html:9
-msgid "frontend.login.login_text"
-msgstr "Přihlášení"
-
-#: .\frontend\templates\registration\login.html:13
+#: .\frontend\templates\registration\login.html:24
 msgid "frontend.login.login_btn"
 msgstr "Přihlásit se"
 
-#: .\frontend\templates\settings.html:15
+#: .\frontend\templates\settings.html:42
 msgid "frondend.settings.save_changes"
 msgstr "Uložit změny"
 
-#: .\server\settings.py:149
+#: .\server\settings.py:150
 msgid "langs.english"
 msgstr "Angličtina"
 
-#: .\server\settings.py:150
+#: .\server\settings.py:151
 msgid "langs.czech"
 msgstr "Čeština"
 
-#: .\server\settings.py:151
+#: .\server\settings.py:152
 msgid "langs.slovak"
 msgstr "Slovenština"
+
+#~ msgid "frontend.login.login_text"
+#~ msgstr "Přihlášení"
 
 #~ msgid "frontend.settings.settings"
 #~ msgstr "Nastavení"
