@@ -2,6 +2,8 @@
 {% load static %}
 {% load i18n %}
 {% load convert_currency %}
+{% load convert_currency_number %}
+{% load currency_symbol %}
 {% load stock_sum %}
 {% load sum_objects %}
 {% load is_in %}
@@ -56,10 +58,24 @@
 
 {% block scripts %}
 <script>
-    const salesLabels = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    const salesLabelz = [
+        '{% trans "frontend.index.monday" %}',
+        '{% trans "frontend.index.tuesday" %}',
+        '{% trans "frontend.index.wednesday" %}',
+        '{% trans "frontend.index.thursday" %}',
+        '{% trans "frontend.index.friday" %}',
+        '{% trans "frontend.index.saturday" %}',
+        '{% trans "frontend.index.sunday" %}'
+    ];
+    var salesLabels = [];
+    var d = new Date().getDay() - 1;
 
-    const earningsData = {{ stocks_history|sales_chart_data:"earnings"|safe }};
-    const costsData = {{ stocks_history|sales_chart_data:"costs"|safe }};
+    for(let i = 0; i < salesLabelz.length; i++) {
+        salesLabels.unshift(salesLabelz[(d + i) % salesLabelz.length])
+    }
+
+    const earningsData = {{ stocks_history|sales_chart_data:"earnings"|convert_currency_number:user_config.currency|safe }};
+    const costsData = {{ stocks_history|sales_chart_data:"costs"|convert_currency_number:user_config.currency|safe }};
     const categoryLabels = {{ items|category_distribution:"labels,3"|safe }};
     const categoryCounts = {{ items|category_distribution:"counts,3"|safe }};
 
@@ -86,7 +102,16 @@
         },
         options: {
             responsive: true,
-            maintainAspectRatio: false
+            maintainAspectRatio: false,
+            scales: {
+            y: {
+                ticks: {
+                    callback: function(value, index, values) {
+                        return value + ' {{ user_config.currency|currency_symbol }}'; // Add your character here
+                    }
+                }
+            }
+        }
         }
     });
 
