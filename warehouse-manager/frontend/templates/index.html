@@ -79,6 +79,10 @@
     const categoryLabels = {{ items|category_distribution:"labels,3"|safe }};
     const categoryCounts = {{ items|category_distribution:"counts,3"|safe }};
 
+    function numberWithSpaces(x) {
+        return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+    }
+
     // Line Chart – Sales Performance
     const salesCtx = document.getElementById('salesChart').getContext('2d');
     new Chart(salesCtx, {
@@ -107,7 +111,7 @@
             y: {
                 ticks: {
                     callback: function(value, index, values) {
-                        return value + ' {{ user_config.currency|currency_symbol }}'; // Add your character here
+                        return numberWithSpaces(value) + ' {{ user_config.currency|currency_symbol }}'; // Add your character here
                     }
                 }
             }
