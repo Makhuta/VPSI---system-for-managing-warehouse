@@ -12,9 +12,4 @@ class Command(BaseCommand):
         # Get the arguments
         amount = int(kwargs['amount'])
 
-        generate_model(Supplier, amount)
         generate_model(Item, amount)
-        generate_model(Customer, amount)
-        generate_model(Order, amount)
-        generate_model(Warehouse, amount)
-        generate_model(Stocks, amount)

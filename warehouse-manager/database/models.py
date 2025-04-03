@@ -9,7 +9,13 @@ from django.forms.models import model_to_dict
 
 # Create your models here.
 
-class Supplier(models.Model):
+class GeneratingModel(models.Model):
+    class Meta:
+        abstract = True
+    def generate():
+        print("Default generate need override.")
+
+class Supplier(GeneratingModel):
     #sid
     name = models.CharField(max_length=50, verbose_name=_('database.supplier.name'))
     contact = models.CharField(max_length=50, verbose_name=_('database.supplier.contact'))
@@ -82,8 +88,81 @@ class Supplier(models.Model):
         )
         generated.save()
 
+class Customer(GeneratingModel):
+    #sid
+    name = models.CharField(max_length=50, verbose_name=_('database.supplier.name'))
+    contact = models.CharField(max_length=50, verbose_name=_('database.supplier.contact'))
+    phone = models.CharField(max_length=13, verbose_name=_('database.supplier.phone'))
+    address = models.CharField(max_length=50, verbose_name=_('database.supplier.address'))
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name=_('database.supplier.created_at'))
 
-class Item(models.Model):
+    def __str__(self):
+        return self.name
+    
+    def generate():
+        FIRST_NAMES = [
+            "Emma", "Liam", "Olivia", "Noah", "Ava", "Elijah", "Sophia", "James", "Isabella", "Benjamin",
+            "Charlotte", "Lucas", "Mia", "Mason", "Amelia", "Ethan", "Harper", "Alexander", "Evelyn", "Henry",
+            "Abigail", "Sebastian", "Ella", "Daniel", "Scarlett"
+        ]
+        LAST_NAMES = [
+            "Johnson", "Smith", "Brown", "Williams", "Jones", "Garcia", "Miller", "Davis", "Rodriguez", "Martinez",
+            "Hernandez", "Lopez", "Gonzalez", "Wilson", "Anderson", "Thomas", "Taylor", "Moore", "Jackson", "Martin",
+            "Lee", "Perez", "Thompson", "White", "Harris"
+        ]
+        ADDRESSES = [
+            "123 Maple St, Springfield, IL 62704",
+            "456 Oak Ave, Columbus, OH 43215",
+            "789 Pine Rd, Denver, CO 80203",
+            "234 Elm St, Austin, TX 73301",
+            "567 Birch Blvd, Seattle, WA 98101",
+            "890 Cedar Dr, Miami, FL 33101",
+            "345 Walnut St, Atlanta, GA 30301",
+            "678 Cherry Ln, Boston, MA 02101",
+            "901 Ash Ave, Phoenix, AZ 85001",
+            "112 Poplar Ct, Nashville, TN 37201",
+            "223 Sycamore St, Detroit, MI 48201",
+            "334 Magnolia Rd, Raleigh, NC 27601",
+            "445 Willow Blvd, Dallas, TX 75201",
+            "556 Cypress Ave, Orlando, FL 32801",
+            "667 Spruce Dr, Minneapolis, MN 55401",
+            "778 Redwood Ln, Portland, OR 97201",
+            "889 Hickory St, Denver, CO 80204",
+            "990 Palm Ct, San Diego, CA 92101",
+            "1010 Alder Rd, Philadelphia, PA 19101",
+            "1111 Fir Ave, Chicago, IL 60601",
+            "1212 Bayberry Blvd, Houston, TX 77001",
+            "1313 Laurel St, San Francisco, CA 94101",
+            "1414 Chestnut Ct, Los Angeles, CA 90001",
+            "1515 Juniper Dr, Las Vegas, NV 89101",
+            "1616 Dogwood Rd, Charlotte, NC 28201"
+        ]
+        PHONES = [
+            "(217) 555-1234", "(614) 555-5678", "(303) 555-9012", "(512) 555-3456", "(206) 555-7890",
+            "(305) 555-2345", "(404) 555-6789", "(617) 555-0123", "(602) 555-4567", "(615) 555-8901",
+            "(313) 555-2345", "(919) 555-6789", "(214) 555-0123", "(407) 555-4567", "(612) 555-8901",
+            "(503) 555-2345", "(303) 555-6789", "(619) 555-0123", "(215) 555-4567", "(312) 555-8901",
+            "(713) 555-2345", "(415) 555-6789", "(213) 555-0123", "(702) 555-4567", "(704) 555-8901"
+        ]
+        EMAILS = [
+            "emma.johnson@email.com", "liam.smith@email.com", "olivia.brown@email.com", "noah.williams@email.com",
+            "ava.jones@email.com", "elijah.garcia@email.com", "sophia.miller@email.com", "james.davis@email.com",
+            "isabella.rodriguez@email.com", "benjamin.martinez@email.com", "charlotte.hernandez@email.com",
+            "lucas.lopez@email.com", "mia.gonzalez@email.com", "mason.wilson@email.com", "amelia.anderson@email.com",
+            "ethan.thomas@email.com", "harper.taylor@email.com", "alexander.moore@email.com", "evelyn.jackson@email.com",
+            "henry.martin@email.com", "abigail.lee@email.com", "sebastian.perez@email.com", "ella.thompson@email.com",
+            "daniel.white@email.com", "scarlett.harris@email.com"
+        ]
+        generated = Customer(
+            name=f'{random.choice(FIRST_NAMES)} {random.choice(LAST_NAMES)}',
+            contact=random.choice(EMAILS),
+            phone=random.choice(PHONES),
+            address=random.choice(ADDRESSES)
+        )
+        generated.save()
+
+
+class Item(GeneratingModel):
     ITEM_STATUS = [
         ('active', _('database.item.active')),
         ('inactive', _('database.item.inactive'))
@@ -115,7 +194,7 @@ class Item(models.Model):
         )
         generated.save()
 
-class Order(models.Model):
+class Order(GeneratingModel):
     ORDER_STATUS = [
         ('pending', _('database.order.pending')),
         ('approved', _('database.order.approved')),
@@ -125,6 +204,7 @@ class Order(models.Model):
     
     # oid
     item = models.ForeignKey(Item,on_delete=models.SET_NULL,null=True, verbose_name=_('database.order.item'))
+    customer = models.ForeignKey(Customer,on_delete=models.SET_NULL,null=True, verbose_name=_('database.order.customer'))
     order_date = models.DateTimeField(auto_now_add=True, verbose_name=_('database.order.order_date'))
     quantity = models.IntegerField(verbose_name=_('database.order.quantity'))
     status = models.CharField(max_length=10, choices=ORDER_STATUS, default='pending', verbose_name=_('database.order.status'))
@@ -132,17 +212,25 @@ class Order(models.Model):
     def __str__(self):
         return f'{self.item} ({self.status})'
     
+    @property
+    def full_price(self):
+        if not self.item:
+            return 0.0
+        return float(self.item.price) * float(self.quantity)
+    
     def generate():
         ITEMS = list(Item.objects.all())
+        CUSTOMERS = list(Customer.objects.all())
         
         generated = Order(
             item=random.choice(ITEMS) if ITEMS else None,
+            customer=random.choice(CUSTOMERS) if CUSTOMERS else None,
             quantity=random.randint(1, 50),
             status=random.choice(['pending', 'approved', 'delivered', 'canceled'])
         )
         generated.save()
 
-class Warehouse(models.Model):
+class Warehouse(GeneratingModel):
     #wid
     name = models.CharField(max_length=50, verbose_name=_('database.warehouse.name'))
     location = models.CharField(max_length=50, verbose_name=_('database.warehouse.location'))
@@ -160,7 +248,7 @@ class Warehouse(models.Model):
         )
         generated.save()
 
-class Stocks(models.Model):
+class Stocks(GeneratingModel):
     #sid
     item = models.ForeignKey(Item, on_delete=models.SET_NULL, null=True, verbose_name=_('database.stock.item'))
     warehouse = models.ForeignKey(Warehouse, on_delete=models.SET_NULL,null=True, verbose_name=_('database.stock.warehouse'))
