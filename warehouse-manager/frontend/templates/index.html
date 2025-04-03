@@ -20,33 +20,46 @@
 
         <!-- Stats Cards -->
         <div class="grid grid-cols-4 gap-6 mt-6 mr-10">
-            <div class="bg-black text-white p-5 rounded-2xl h-40 flex flex-col justify-center">
-                <h3 class="text-lg">{% trans "frontend.index.total" %}</h3>
-                <p class="text-2xl font-bold">{{ stocks_history|stock_sum|convert_currency:user_config.currency }}</p>
+            <div class="bg-black text-white p-5 rounded-3xl h-40 flex flex-row items-center space-x-3">
+                <i class="fa-solid fa-chart-line bg-gray-800 text-white rounded-3xl p-6 h-full flex items-center justify-center text-3xl"></i>
+                <div>
+                    <h3 class="text-lg font-semibold">{% trans "frontend.index.total" %}</h3>
+                    <p class="text-2xl font-bold">{{ stocks_history|stock_sum|convert_currency:user_config.currency }}</p>
+                    <p id="earningsCostDiff" class="text-sm mt-2"></p>
+                </div>
             </div>
-            <div class="bg-white p-5 rounded-2xl shadow h-40 flex flex-col justify-center">
-                <h3 class="text-lg">{% trans "frontend.index.active_orders" %}</h3>
-                <p class="text-2xl font-bold">{{ orders|is_in:"status,approved"|length }}</p>
+            <div class="bg-white p-5 rounded-3xl shadow h-40 flex flex-row items-center space-x-3">
+                <i class="fa-solid fa-clock-rotate-left bg-gray-100 text-black rounded-3xl p-6 h-full flex items-center justify-center text-3xl"></i>
+                <div>
+                    <h3 class="text-lg font-semibold">{% trans "frontend.index.active_orders" %}</h3>
+                    <p class="text-2xl font-bold">{{ orders|is_in:"status,approved"|length }}</p>
+                </div>
             </div>
-            <div class="bg-white p-5 rounded-2xl shadow h-40 flex flex-col justify-center">
-                <h3 class="text-lg">{% trans "frontend.index.critical_stocks" %}</h3>
-                <p class="text-2xl font-bold">{{ stocks|critical_stocks|length }}</p>
+            <div class="bg-white p-5 rounded-3xl shadow h-40 flex flex-row items-center space-x-3">
+                <i class="fa-solid fa-triangle-exclamation bg-gray-100 text-black rounded-3xl p-6 h-full flex items-center justify-center text-3xl"></i>
+                <div>
+                    <h3 class="text-lg font-semibold">{% trans "frontend.index.critical_stocks" %}</h3>
+                    <p class="text-2xl font-bold">{{ stocks|critical_stocks|length }}</p>
+                </div>
             </div>
-            <div class="bg-white p-5 rounded-2xl shadow h-40 flex flex-col justify-center">
-                <h3 class="text-lg">{% trans "frontend.index.incoming_shipments" %}</h3>
-                <p class="text-2xl font-bold">{{ orders|is_in:"status,pending"|length }}</p>
+            <div class="bg-white p-5 rounded-3xl shadow h-40 flex flex-row items-center space-x-3">
+                <i class="fa-solid fa-truck bg-gray-100 text-black rounded-3xl p-6 h-full flex items-center justify-center text-3xl"></i>
+                <div>
+                    <h3 class="text-lg font-semibold">{% trans "frontend.index.incoming_shipments" %}</h3>
+                    <p class="text-2xl font-bold">{{ orders|is_in:"status,pending"|length }}</p>
+                </div>
             </div>
         </div>
 
         <!-- Charts -->
         <div class="mt-10 grid gap-6 mr-10" style="grid-template-columns: 2.5fr 1.5fr;">
-            <div class="bg-white p-5 rounded-2xl shadow">
+            <div class="bg-white p-5 rounded-3xl shadow">
                 <h3 class="text-lg font-semibold">{% trans "frontend.index.sales_performance" %}</h3>
                 <div class="flex-1">
                     <canvas id="salesChart"></canvas>
                 </div>
             </div>
-            <div class="bg-white p-5 rounded-2xl shadow">
+            <div class="bg-white p-5 rounded-3xl shadow">
                 <h3 class="text-lg font-semibold">{% trans "frontend.index.category_distribution" %}</h3>
                 <div class="flex-1">
                     <canvas id="categoryChart"></canvas>
@@ -107,15 +120,28 @@
         options: {
             responsive: true,
             maintainAspectRatio: false,
-            scales: {
-            y: {
-                ticks: {
-                    callback: function(value, index, values) {
-                        return numberWithSpaces(value) + ' {{ user_config.currency|currency_symbol }}'; // Add your character here
+            scales: 
+            {
+                y: {
+                    ticks: {
+                        callback: function(value, index, values) {
+                            return numberWithSpaces(value) + ' {{ user_config.currency|currency_symbol }}'; // Add your character here
+                        }
+                    }
+                },
+            },
+            plugins: 
+            {
+                legend: 
+                {
+                    onHover: (event) => {
+                    event.native.target.style.cursor = 'pointer';
+                    },
+                    onLeave: (event) => {
+                    event.native.target.style.cursor = 'default';
                     }
                 }
             }
-        }
         }
     });
 
@@ -141,18 +167,52 @@
             responsive: true,
             maintainAspectRatio: false,
             cutout: '70%',
-            layout: {
+            layout: 
+            {
                 padding: 15
             },
-            plugins: {
-                legend: {
+            plugins: 
+            {
+                legend: 
+                {
                     position: 'bottom',
-                    labels: {
+                    labels: 
+                    {
                         padding: 20
+                    },
+                    onHover: (event) => {
+                    event.native.target.style.cursor = 'pointer';
+                    },
+                    onLeave: (event) => {
+                    event.native.target.style.cursor = 'default';
                     }
                 }
             }
         }
     });
+
+
+    // Calculating Balance 
+    let week_earnings = earningsData[earningsData.length - 1];  //last week earnings
+    let week_costs = costsData[costsData.length - 1];  //last week costs
+    let week_diff = week_earnings - week_costs;
+
+    const diffElement = document.getElementById('earningsCostDiff');
+
+    if (week_diff > 0) 
+    {
+        diffElement.textContent = `+${numberWithSpaces(week_diff)}`;
+        diffElement.style.color = 'rgb(75, 192, 192)';  //positive difference - green
+    } else if (week_diff < 0) 
+    {
+        diffElement.textContent = `${numberWithSpaces(week_diff)}`;
+        diffElement.style.color = `rgb(255, 99, 132)`;  //negative difference - red
+    } else 
+    {
+        diffElement.textContent = `0`;
+        diffElement.style.color = 'gray';  //no difference - gray
+    }
+
+
 </script>
 {% endblock %}

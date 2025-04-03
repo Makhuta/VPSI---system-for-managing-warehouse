@@ -51,6 +51,13 @@ def items(request):
 
     return custom_render(request, 'items.html', {'page_obj': page_obj})
 
+def orders(request):
+    return custom_render(request, 'orders.html')
+
+def suppliers(request):
+    return custom_render(request, 'suppliers.html')
+
+
 @login_required
 def page_settings(request):
     context = {}
