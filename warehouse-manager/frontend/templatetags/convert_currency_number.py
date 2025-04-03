@@ -6,7 +6,6 @@ register = template.Library()
 
 @register.filter
 def convert_currency_number(values, arg):
-    print("here")
     c = CurrencyConverter()
     from_c = 'EUR'
     to_c = arg.upper()
