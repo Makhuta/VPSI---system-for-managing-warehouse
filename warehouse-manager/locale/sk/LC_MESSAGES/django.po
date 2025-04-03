@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-01 02:16+0200\n"
+"POT-Creation-Date: 2025-04-04 00:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -35,160 +35,164 @@ msgstr "Vyberte vami preferovaný jazyk"
 msgid "database.forms.userconfig.currency_help_text"
 msgstr "Vyberte vami preferovanú menu"
 
-#: .\database\models.py:14
+#: .\database\models.py:20 .\database\models.py:93
 msgid "database.supplier.name"
 msgstr ""
 
-#: .\database\models.py:15
+#: .\database\models.py:21 .\database\models.py:94
 msgid "database.supplier.contact"
 msgstr ""
 
-#: .\database\models.py:16
+#: .\database\models.py:22 .\database\models.py:95
 msgid "database.supplier.phone"
 msgstr ""
 
-#: .\database\models.py:17
+#: .\database\models.py:23 .\database\models.py:96
 msgid "database.supplier.address"
 msgstr ""
 
-#: .\database\models.py:18
+#: .\database\models.py:24 .\database\models.py:97
 msgid "database.supplier.created_at"
 msgstr ""
 
-#: .\database\models.py:88
+#: .\database\models.py:167
 msgid "database.item.active"
 msgstr ""
 
-#: .\database\models.py:89
+#: .\database\models.py:168
 msgid "database.item.inactive"
 msgstr ""
 
-#: .\database\models.py:93
+#: .\database\models.py:172
 msgid "database.item.name"
 msgstr ""
 
-#: .\database\models.py:94
+#: .\database\models.py:173
 msgid "database.item.category"
 msgstr ""
 
-#: .\database\models.py:95
+#: .\database\models.py:174
 msgid "database.item.price"
 msgstr ""
 
-#: .\database\models.py:96
+#: .\database\models.py:175
 msgid "database.item.supplier"
 msgstr ""
 
-#: .\database\models.py:97
+#: .\database\models.py:176
 msgid "database.item.status"
 msgstr ""
 
-#: .\database\models.py:98
+#: .\database\models.py:177
 msgid "database.item.created_at"
 msgstr ""
 
-#: .\database\models.py:99
+#: .\database\models.py:178
 msgid "database.item.updated_at"
 msgstr ""
 
-#: .\database\models.py:120
+#: .\database\models.py:199
 msgid "database.order.pending"
 msgstr ""
 
-#: .\database\models.py:121
+#: .\database\models.py:200
 msgid "database.order.approved"
 msgstr ""
 
-#: .\database\models.py:122
+#: .\database\models.py:201
 msgid "database.order.delivered"
 msgstr ""
 
-#: .\database\models.py:123
+#: .\database\models.py:202
 msgid "database.order.canceled"
 msgstr ""
 
-#: .\database\models.py:127
+#: .\database\models.py:206
 msgid "database.order.item"
 msgstr ""
 
-#: .\database\models.py:128
+#: .\database\models.py:207
+msgid "database.order.customer"
+msgstr ""
+
+#: .\database\models.py:208
 msgid "database.order.order_date"
 msgstr ""
 
-#: .\database\models.py:129
+#: .\database\models.py:209
 msgid "database.order.quantity"
 msgstr ""
 
-#: .\database\models.py:130
+#: .\database\models.py:210
 msgid "database.order.status"
 msgstr ""
 
-#: .\database\models.py:147
+#: .\database\models.py:235
 msgid "database.warehouse.name"
 msgstr ""
 
-#: .\database\models.py:148
+#: .\database\models.py:236
 msgid "database.warehouse.location"
 msgstr ""
 
-#: .\database\models.py:165
+#: .\database\models.py:253
 msgid "database.stock.item"
 msgstr ""
 
-#: .\database\models.py:166
+#: .\database\models.py:254
 msgid "database.stock.warehouse"
 msgstr ""
 
-#: .\database\models.py:167
+#: .\database\models.py:255
 msgid "database.stock.quantity"
 msgstr ""
 
-#: .\database\models.py:168
+#: .\database\models.py:256
 msgid "database.stock.min_quantity"
 msgstr ""
 
-#: .\database\models.py:235
+#: .\database\models.py:323
 msgid "database.stock_history.stock"
 msgstr ""
 
-#: .\database\models.py:236
+#: .\database\models.py:324
 msgid "database.stock_history.quantity_change"
 msgstr ""
 
-#: .\database\models.py:237
+#: .\database\models.py:325
 msgid "database.stock_history.order_date"
 msgstr ""
 
-#: .\database\models.py:247
+#: .\database\models.py:335
 msgid "database.userconfig.language"
 msgstr ""
 
-#: .\database\models.py:248
+#: .\database\models.py:336
 msgid "database.userconfig.currency"
 msgstr ""
 
-#: .\frontend\templates\base.html:27
+#: .\frontend\templates\base.html:28
 msgid "frontend.index.overview"
 msgstr "Prehľad"
 
-#: .\frontend\templates\base.html:28
+#: .\frontend\templates\base.html:29
 msgid "frontend.index.items"
 msgstr "Položky"
 
-#: .\frontend\templates\base.html:29
+#: .\frontend\templates\base.html:30
 msgid "frontend.index.orders"
 msgstr "Objednávky"
 
-#: .\frontend\templates\base.html:30
+#: .\frontend\templates\base.html:31
 msgid "frontend.index.suppliers"
 msgstr "Dodávatelia"
 
-#: .\frontend\templates\base.html:32 .\frontend\templates\settings.html:5
+#: .\frontend\templates\base.html:33 .\frontend\templates\settings.html:5
 #: .\frontend\templates\settings.html:12
 msgid "frontend.index.settings"
 msgstr "Nastavenia"
 
-#: .\frontend\templates\base.html:36
+#: .\frontend\templates\base.html:37
 msgid "frontend.index.logout"
 msgstr "Odhlásiť"
 
@@ -204,67 +208,67 @@ msgstr "vyhľadať"
 msgid "frontend.index.login"
 msgstr "prihlásiť"
 
-#: .\frontend\templates\index.html:22
+#: .\frontend\templates\index.html:26
 msgid "frontend.index.total"
 msgstr "súhrn"
 
-#: .\frontend\templates\index.html:26
+#: .\frontend\templates\index.html:34
 msgid "frontend.index.active_orders"
 msgstr "aktívne objednávky"
 
-#: .\frontend\templates\index.html:30
+#: .\frontend\templates\index.html:41
 msgid "frontend.index.critical_stocks"
 msgstr "kritické zásoba"
 
-#: .\frontend\templates\index.html:34
+#: .\frontend\templates\index.html:48
 msgid "frontend.index.incoming_shipments"
 msgstr "prichádzajúce zásielky"
 
-#: .\frontend\templates\index.html:42
+#: .\frontend\templates\index.html:57
 msgid "frontend.index.sales_performance"
 msgstr "Výkonnosť predaja"
 
-#: .\frontend\templates\index.html:48
+#: .\frontend\templates\index.html:63
 msgid "frontend.index.category_distribution"
 msgstr "Rozdelenie kategórií"
 
-#: .\frontend\templates\index.html:60
+#: .\frontend\templates\index.html:75
 msgid "frontend.index.monday"
 msgstr ""
 
-#: .\frontend\templates\index.html:61
+#: .\frontend\templates\index.html:76
 msgid "frontend.index.tuesday"
 msgstr ""
 
-#: .\frontend\templates\index.html:62
+#: .\frontend\templates\index.html:77
 msgid "frontend.index.wednesday"
 msgstr ""
 
-#: .\frontend\templates\index.html:63
+#: .\frontend\templates\index.html:78
 msgid "frontend.index.thursday"
 msgstr ""
 
-#: .\frontend\templates\index.html:64
+#: .\frontend\templates\index.html:79
 msgid "frontend.index.friday"
 msgstr ""
 
-#: .\frontend\templates\index.html:65
+#: .\frontend\templates\index.html:80
 msgid "frontend.index.saturday"
 msgstr ""
 
-#: .\frontend\templates\index.html:66
+#: .\frontend\templates\index.html:81
 msgid "frontend.index.sunday"
 msgstr ""
 
-#: .\frontend\templates\index.html:88
+#: .\frontend\templates\index.html:107
 msgid "frontend.index.earnings"
 msgstr "Príjmy"
 
-#: .\frontend\templates\index.html:94
+#: .\frontend\templates\index.html:113
 msgid "frontend.index.costs"
 msgstr "Náklady"
 
-#: .\frontend\templates\index.html:114
+#: .\frontend\templates\index.html:155
 msgid "frontend.index.sales_share"
 msgstr "Podiel predajov"
 
@@ -276,41 +280,77 @@ msgstr ""
 msgid "frontend.items.sort_by"
 msgstr "položky"
 
-#: .\frontend\templates\items.html:23
+#: .\frontend\templates\items.html:24
 msgid "frontend.items.add_product"
 msgstr "odhlásiť"
 
-#: .\frontend\templates\items.html:28
+#: .\frontend\templates\items.html:31
 msgid "frontend.items.id"
 msgstr "položky"
 
-#: .\frontend\templates\items.html:29
+#: .\frontend\templates\items.html:32
 msgid "frontend.items.name"
 msgstr "položky"
 
-#: .\frontend\templates\items.html:30
+#: .\frontend\templates\items.html:33
 msgid "frontend.items.status"
 msgstr "Náklady"
 
-#: .\frontend\templates\items.html:31
+#: .\frontend\templates\items.html:34
 msgid "frontend.items.category"
 msgstr "Rozdelenie kategórií"
 
-#: .\frontend\templates\items.html:32
+#: .\frontend\templates\items.html:35
 msgid "frontend.items.price"
 msgstr "položky"
 
-#: .\frontend\templates\items.html:33
+#: .\frontend\templates\items.html:36
 msgid "frontend.items.warehouse"
 msgstr "objednávky"
 
-#: .\frontend\templates\items.html:34
+#: .\frontend\templates\items.html:37
 msgid "frontend.items.date"
 msgstr "položky"
 
-#: .\frontend\templates\items.html:50
+#: .\frontend\templates\items.html:53
 msgid "frontend.items.no_items_found"
 msgstr "položky"
+
+#: .\frontend\templates\orders.html:16
+msgid "frontend.orders.status.all"
+msgstr ""
+
+#: .\frontend\templates\orders.html:19
+msgid "frontend.orders.sort_by"
+msgstr ""
+
+#: .\frontend\templates\orders.html:23
+msgid "frontend.orders.add_order"
+msgstr ""
+
+#: .\frontend\templates\orders.html:30
+msgid "frontend.orders.id"
+msgstr ""
+
+#: .\frontend\templates\orders.html:31
+msgid "frontend.orders.customer"
+msgstr ""
+
+#: .\frontend\templates\orders.html:32
+msgid "frontend.orders.status"
+msgstr ""
+
+#: .\frontend\templates\orders.html:33
+msgid "frontend.orders.total_price"
+msgstr ""
+
+#: .\frontend\templates\orders.html:34
+msgid "frontend.orders.date"
+msgstr ""
+
+#: .\frontend\templates\orders.html:48
+msgid "frontend.orders.no_orders_found"
+msgstr ""
 
 #: .\frontend\templates\registration\login.html:24
 msgid "frontend.login.login_btn"
@@ -318,6 +358,38 @@ msgstr "prihlásiť"
 
 #: .\frontend\templates\settings.html:42
 msgid "frondend.settings.save_changes"
+msgstr ""
+
+#: .\frontend\templates\suppliers.html:12
+msgid "frontend.suppliers.title"
+msgstr ""
+
+#: .\frontend\templates\suppliers.html:14
+msgid "frontend.suppliers.add_supplier"
+msgstr ""
+
+#: .\frontend\templates\suppliers.html:21
+msgid "frontend.suppliers.id"
+msgstr ""
+
+#: .\frontend\templates\suppliers.html:22
+msgid "frontend.suppliers.name"
+msgstr ""
+
+#: .\frontend\templates\suppliers.html:23
+msgid "frontend.suppliers.email"
+msgstr ""
+
+#: .\frontend\templates\suppliers.html:24
+msgid "frontend.suppliers.phone"
+msgstr ""
+
+#: .\frontend\templates\suppliers.html:25
+msgid "frontend.suppliers.address"
+msgstr ""
+
+#: .\frontend\templates\suppliers.html:39
+msgid "frontend.suppliers.no_suppliers_found"
 msgstr ""
 
 #: .\server\settings.py:150
