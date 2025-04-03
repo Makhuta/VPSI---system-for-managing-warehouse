@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     {% block styles %}{% endblock %}
@@ -21,19 +22,19 @@
     <div class="flex h-screen">
         <!-- Sidebar -->
         <aside class="w-64 bg-black text-white p-5">
-            <h1 class="text-xl font-bold">@ Managing Warehouse</h1>
+            <h1 class="text-xl font-bold" style="font-size:30px; line-height: 1.4;">Managing Warehouse</h1>
             <nav class="mt-5">
-                <ul>
-                    <li class="py-2"><a href="{% url 'index' %}" class="hover:text-gray-400">{% trans "frontend.index.overview" %}</a></li>
-                    <li class="py-2"><a href="{% url 'items' %}" class="hover:text-gray-400">{% trans "frontend.index.items" %}</a></li>
-                    <li class="py-2"><a href="#" class="hover:text-gray-400">{% trans "frontend.index.orders" %}</a></li>
-                    <li class="py-2"><a href="#" class="hover:text-gray-400">{% trans "frontend.index.suppliers" %}</a></li>
+                <ul style="font-size: 17px;">
+                    <li class="py-2"><i class="fa-solid fa-desktop w-4 text-right"></i><a href="{% url 'index' %}" class="hover:text-gray-400" style="text-decoration: none;">{% trans "frontend.index.overview" %}</a></li>
+                    <li class="py-2"><i class="fa-solid fa-table-list w-4 text-right"></i></i><a href="{% url 'items' %}" class="hover:text-gray-400" style="text-decoration: none;">{% trans "frontend.index.items" %}</a></li>
+                    <li class="py-2"><i class="fa-solid fa-basket-shopping w-4 text-right"></i><a href="{% url 'orders' %}" class="hover:text-gray-400" style="text-decoration: none;">{% trans "frontend.index.orders" %}</a></li>
+                    <li class="py-2"><i class="fa-solid fa-users w-4 text-right"></i><a href="{% url 'suppliers' %}" class="hover:text-gray-400" style="text-decoration: none;">{% trans "frontend.index.suppliers" %}</a></li>
                     {% if user.is_authenticated %}
-                        <li class="py-2"><a href="{% url 'settings' %}" class="hover:text-gray-400">{% trans "frontend.index.settings" %}</a></li>
+                        <li class="py-2"><i class="fa-solid fa-gear w-4 text-right"></i><a href="{% url 'settings' %}" class="hover:text-gray-400" style="text-decoration: none;">{% trans "frontend.index.settings" %}</a></li>
                     {% else %}
                     {% endif %}
                     {% if user.is_authenticated %}
-                        <li class="pt-2"><a href="{% url 'logout' %}" class="hover:text-gray-400">{% trans "frontend.index.logout" %}</a></li>
+                        <li class="pt-2"><i class="fa-solid fa-right-from-bracket w-4 text-right"></i><a href="{% url 'logout' %}" class="hover:text-gray-400" style="text-decoration: none;">{% trans "frontend.index.logout" %}</a></li>
                     {% else %}
                     {% endif %}
                 </ul>

@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}Orders{% endblock %}
+
+{% block main %}
+  <main class="flex-1 p-6">
+    {% include "header_bar.html" %}
+      
+    <div class="table-container">
+        <div class="d-flex justify-content-between mb-3">
+            <div>
+                <select class="form-select" style="width: 200px; display: inline-block;">
+                    <option>{% trans "frontend.orders.status.all" %}</option>
+                </select>
+                <select class="form-select" style="width: 150px; display: inline-block;">
+                    <option>{% trans "frontend.orders.sort_by" %}</option>
+                </select>
+            </div>
+            <button class="btn btn-dark">{% trans "frontend.orders.add_order" %}</button>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>{% trans "frontend.orders.id" %}</th>
+                    <th>{% trans "frontend.orders.customer" %}</th>
+                    <th>{% trans "frontend.orders.status" %}</th>
+                    <th>{% trans "frontend.orders.total_price" %}</th>
+                    <th>{% trans "frontend.orders.date" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>John Doe</td>
+                    <td>Pending</td>
+                    <td>$120.00</td>
+                    <td>31 Mar, 2025</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Jane Smith</td>
+                    <td>Shipped</td>
+                    <td>$250.00</td>
+                    <td>30 Mar, 2025</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Bob Johnson</td>
+                    <td>Delivered</td>
+                    <td>$80.00</td>
+                    <td>29 Mar, 2025</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </main>
+{% endblock %}

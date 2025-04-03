@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}Suppliers{% endblock %}
+
+{% block main %}
+  <main class="flex-1 p-6">
+    {% include "header_bar.html" %}
+    
+    <div class="table-container">
+        <div class="d-flex justify-content-between mb-3">
+            <h2>{% trans "frontend.suppliers.title" %}</h2>
+            <button class="btn btn-dark">{% trans "frontend.suppliers.add_supplier" %}</button>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>{% trans "frontend.suppliers.id" %}</th>
+                    <th>{% trans "frontend.suppliers.name" %}</th>
+                    <th>{% trans "frontend.suppliers.contact" %}</th>
+                    <th>{% trans "frontend.suppliers.email" %}</th>
+                    <th>{% trans "frontend.suppliers.phone" %}</th>
+                    <th>{% trans "frontend.suppliers.address" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Supplier A</td>
+                    <td>John Doe</td>
+                    <td>supplier@example.com</td>
+                    <td>+420 123 456 789</td>
+                    <td>Some Street 123, City</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Supplier B</td>
+                    <td>Jane Smith</td>
+                    <td>contact@company.com</td>
+                    <td>+421 987 654 321</td>
+                    <td>Main Street 456, Another City</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </main>
+{% endblock %}
