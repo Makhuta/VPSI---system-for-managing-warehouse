@@ -52,10 +52,22 @@ def items(request):
     return custom_render(request, 'items.html', {'page_obj': page_obj})
 
 def orders(request):
-    return custom_render(request, 'orders.html')
+    orterz = list(Order.objects.all())
+
+    paginator = Paginator(orterz, 10)  
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return custom_render(request, 'orders.html', {"page_obj": page_obj})
 
 def suppliers(request):
-    return custom_render(request, 'suppliers.html')
+    subblierz = list(Supplier.objects.all())
+
+    paginator = Paginator(subblierz, 10)  
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return custom_render(request, 'suppliers.html', {"page_obj": page_obj})
 
 
 @login_required

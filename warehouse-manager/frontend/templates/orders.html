@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% load i18n %}
+{% load convert_currency %}
 
 {% block title %}Orders{% endblock %}
 
@@ -18,7 +19,10 @@
                     <option>{% trans "frontend.orders.sort_by" %}</option>
                 </select>
             </div>
+            {% if user.is_authenticated %}
             <button class="btn btn-dark">{% trans "frontend.orders.add_order" %}</button>
+            {% else %}
+            {% endif %}
         </div>
         <table class="table table-striped">
             <thead>
@@ -31,29 +35,65 @@
                 </tr>
             </thead>
             <tbody>
+                {% for order in page_obj %}
                 <tr>
-                    <td>1</td>
-                    <td>John Doe</td>
-                    <td>Pending</td>
-                    <td>$120.00</td>
-                    <td>31 Mar, 2025</td>
+                    <td>{{ order.id }}</td>
+                    <td>{{ order.customer }}</td>
+                    <td>{{ order.get_status_display }}</td>
+                    <td>{{ order.full_price|convert_currency:user_config.currency }}</td>
+                    <td>{{ order.order_date }}</td>
                 </tr>
+                {% empty %}
                 <tr>
-                    <td>2</td>
-                    <td>Jane Smith</td>
-                    <td>Shipped</td>
-                    <td>$250.00</td>
-                    <td>30 Mar, 2025</td>
+                    <td colspan="5" class="text-center">{% trans "frontend.orders.no_orders_found" %}</td>
                 </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Bob Johnson</td>
-                    <td>Delivered</td>
-                    <td>$80.00</td>
-                    <td>29 Mar, 2025</td>
-                </tr>
+                {% endfor %}
             </tbody>
         </table>
+        <nav>
+            <ul class="pagination justify-content-center">
+              {% if page_obj.has_previous %}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+                </li>
+              {% else %}
+                <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
+              {% endif %}
+          
+              <!-- First Page -->
+              {% if page_obj.number > 3 %}
+                <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
+                {% if page_obj.number > 4 %}
+                  <li class="page-item disabled"><span class="page-link">...</span></li>
+                {% endif %}
+              {% endif %}
+          
+              <!-- Page Range -->
+              {% for num in page_obj.paginator.page_range %}
+                {% if num == page_obj.number %}
+                  <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+                {% elif num >= page_obj.number|add:'-2' and num <= page_obj.number|add:'2' %}
+                  <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                {% endif %}
+              {% endfor %}
+          
+              <!-- Last Page -->
+              {% if page_obj.number < page_obj.paginator.num_pages|add:'-2' %}
+                {% if page_obj.number < page_obj.paginator.num_pages|add:'-3' %}
+                  <li class="page-item disabled"><span class="page-link">...</span></li>
+                {% endif %}
+                <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a></li>
+              {% endif %}
+          
+              {% if page_obj.has_next %}
+                <li class="page-item">
+                  <a class="page-link" href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+                </li>
+              {% else %}
+                <li class="page-item disabled"><span class="page-link">&raquo;</span></li>
+              {% endif %}
+            </ul>
+        </nav>
     </div>
   </main>
 {% endblock %}

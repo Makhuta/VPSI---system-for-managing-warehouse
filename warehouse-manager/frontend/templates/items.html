@@ -20,7 +20,10 @@
                     <option>{% trans "frontend.items.sort_by" %}</option>
                 </select>
             </div>
+            {% if user.is_authenticated %}
             <button class="btn btn-dark">{% trans "frontend.items.add_product" %}</button>
+            {% else %}
+            {% endif %}
         </div>
         <table class="table table-striped">
             <thead>
