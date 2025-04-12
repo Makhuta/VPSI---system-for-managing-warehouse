@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}New Item{% endblock %}
+
+{% block main %}
+    <!-- Add Item Form -->
+    <main class="flex-1 p-6">
+        {% include "header_bar.html" %}
+        
+        <div class="login-container mx-auto max-w-lg bg-white p-6 rounded shadow mt-6">
+            <h2 class="text-2xl font-bold mb-4">Add New Item</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="mb-4">
+                    <label class="block text-gray-700">Item ID</label>
+                    <input type="text" name="id" class="w-full p-2 border rounded" placeholder="Enter ID">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">Name</label>
+                    <input type="text" name="name" class="w-full p-2 border rounded" placeholder="Enter Name">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">Status</label>
+                    <select name="status" class="w-full p-2 border rounded">
+                        <option value="active">Active</option>
+                        <option value="inactive">Inactive</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">Category</label>
+                    <select name="category" class="w-full p-2 border rounded">
+                        <option value="Monitor">Monitor</option>
+                        <option value="Groceries">Groceries</option>
+                        <option value="Toys">Toys</option>
+                        <option value="Furniture">Furniture</option>
+                        <option value="Clothing">Clothing</option>
+                        <option value="Office Supplies">Office Supplies</option>
+                        <option value="Books">Books</option>
+                        <option value="Electronics">Electronics</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">Price</label>
+                    <input type="number" name="price" step="0.01" class="w-full p-2 border rounded" placeholder="Enter Price">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">Warehouse</label>
+                    <input type="text" name="warehouse" class="w-full p-2 border rounded" placeholder="Enter Warehouse Name or Code">
+                </div>
+                <div class="mb-4">
+                    <label class="block text-gray-700">Date</label>
+                    <input type="date" name="date" class="w-full p-2 border rounded">
+                </div>
+                <button type="submit" class="w-full bg-black text-white p-2 rounded">Add Item</button>
+            </form>
+        </div>
+    </main>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}New Order{% endblock %}
+
+{% block main %}
+    <!-- Add Order Form -->
+    <main class="flex-1 p-6">
+        {% include "header_bar.html" %}
+    
+        <div class="login-container mx-auto max-w-lg bg-white p-6 rounded shadow mt-6">
+            <h2 class="text-2xl font-bold mb-4">Add New Order</h2>
+            <form method="post">
+                {% csrf_token %}
+    
+                <div class="mb-4">
+                    <label class="block text-gray-700">Order ID</label>
+                    <input type="text" name="id" class="w-full p-2 border rounded" placeholder="Enter Order ID">
+                </div>
+    
+                <div class="mb-4">
+                    <label class="block text-gray-700">Item ID</label>
+                    <input type="text" name="item_id" class="w-full p-2 border rounded" placeholder="Enter Item ID">
+                </div>
+    
+                <div class="mb-4">
+                    <label class="block text-gray-700">Customer ID</label>
+                    <input type="text" name="customer_id" class="w-full p-2 border rounded" placeholder="Enter Customer ID">
+                </div>
+    
+                <div class="mb-4">
+                    <label class="block text-gray-700">Order Date</label>
+                    <input type="date" name="order_date" class="w-full p-2 border rounded">
+                </div>
+    
+                <div class="mb-4">
+                    <label class="block text-gray-700">Quantity</label>
+                    <input type="number" name="quantity" class="w-full p-2 border rounded" placeholder="Enter Quantity">
+                </div>
+    
+                <div class="mb-4">
+                    <label class="block text-gray-700">Status</label>
+                    <select name="status" class="w-full p-2 border rounded">
+                        <option value="delivered">Delivered</option>
+                        <option value="approved">Approved</option>
+                        <option value="canceled">Canceled</option>
+                        <option value="pending">Pending</option>
+                    </select>
+                </div>
+    
+                <button type="submit" class="w-full bg-black text-white p-2 rounded">Add Order</button>
+            </form>
+        </div>
+    </main>
+{% endblock %}
