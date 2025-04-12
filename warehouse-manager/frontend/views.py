@@ -94,3 +94,21 @@ def page_settings(request):
         context["current_currency"] = user_config.currency
         
     return custom_render(request, 'settings.html', context)
+
+@login_required
+def new_item(request):
+    if request.method == 'POST':
+        pass
+    return render(request, 'new_item.html')
+
+@login_required
+def new_order(request):
+    if request.method == 'POST':
+        pass
+    return render(request, 'new_order.html')
+
+@login_required
+def new_supplier(request):
+    if request.method == 'POST':
+        pass
+    return render(request, 'new_supplier.html')

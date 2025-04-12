@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}New Supplier{% endblock %}
+
+{% block main %}
+    <!-- Add Supplier Form -->
+    <main class="flex-1 p-6">
+        {% include "header_bar.html" %}
+        
+        <div class="login-container mx-auto max-w-lg bg-white p-6 rounded shadow mt-6">
+            <h2 class="text-2xl font-bold mb-4">Add New Supplier</h2>
+            <form method="post">
+                {% csrf_token %}
+
+                <div class="mb-4">
+                    <label class="block text-gray-700">Supplier ID</label>
+                    <input type="text" name="id" class="w-full p-2 border rounded" placeholder="Enter Supplier ID">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-gray-700">Name</label>
+                    <input type="text" name="name" class="w-full p-2 border rounded" placeholder="Enter Supplier Name">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-gray-700">Contact Person</label>
+                    <input type="text" name="contact" class="w-full p-2 border rounded" placeholder="Enter Contact Person">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-gray-700">Phone</label>
+                    <input type="text" name="phone" class="w-full p-2 border rounded" placeholder="Enter Phone Number">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-gray-700">Address</label>
+                    <input type="text" name="address" class="w-full p-2 border rounded" placeholder="Enter Address">
+                </div>
+
+                <div class="mb-4">
+                    <label class="block text-gray-700">Created At</label>
+                    <input type="date" name="created_at" class="w-full p-2 border rounded">
+                </div>
+
+                <button type="submit" class="w-full bg-black text-white p-2 rounded">Add Supplier</button>
+            </form>
+        </div>
+    </main>
+{% endblock %}

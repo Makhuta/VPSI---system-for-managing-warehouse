@@ -7,11 +7,11 @@
   <main class="flex-1 p-6">
     {% include "header_bar.html" %}
     
-    <div class="table-container">
+    <div class="table-container mt-6">
         <div class="d-flex justify-content-between mb-3">
             <h2>{% trans "frontend.suppliers.title" %}</h2>
             {% if user.is_authenticated %}
-            <button class="btn btn-dark">{% trans "frontend.suppliers.add_supplier" %}</button>
+            <a href="{% url 'new_supplier' %}"><button class="btn btn-dark">{% trans "frontend.suppliers.add_supplier" %}</button></a>
             {% else %}
             {% endif %}
         </div>

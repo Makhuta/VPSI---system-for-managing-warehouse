@@ -22,7 +22,7 @@
     <div class="flex h-screen">
         <!-- Sidebar -->
         <aside class="w-64 bg-black text-white p-5">
-            <h1 class="text-xl font-bold" style="font-size:30px; line-height: 1.4;">Managing Warehouse</h1>
+            <a href="{% url 'index' %}" class="hover:text-white" style="text-decoration: none;"><h1 class="text-xl font-bold" style="font-size:30px; line-height: 1.4;">Managing Warehouse</h1></a>
             <nav class="mt-5">
                 <ul style="font-size: 17px;">
                     <li class="py-2"><i class="fa-solid fa-desktop w-4 text-right"></i><a href="{% url 'index' %}" class="hover:text-gray-400" style="text-decoration: none;">{% trans "frontend.index.overview" %}</a></li>

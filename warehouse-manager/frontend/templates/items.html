@@ -10,7 +10,7 @@
   <main class="flex-1 p-6">
     {% include "header_bar.html" %}
       
-    <div class="table-container">
+    <div class="table-container mt-6">
         <div class="d-flex justify-content-between mb-3">
             <div>
                 <select class="form-select" style="width: 200px; display: inline-block;">
@@ -21,7 +21,7 @@
                 </select>
             </div>
             {% if user.is_authenticated %}
-            <button class="btn btn-dark">{% trans "frontend.items.add_product" %}</button>
+            <a href="{% url 'new_item' %}"><button class="btn btn-dark">{% trans "frontend.items.add_product" %}</button></a>
             {% else %}
             {% endif %}
         </div>
