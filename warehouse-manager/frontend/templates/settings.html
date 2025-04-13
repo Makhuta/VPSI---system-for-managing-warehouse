@@ -12,39 +12,64 @@
 
         <!-- Tabs -->
         <div class="bg-gray-100 p-4 w-48 flex flex-col gap-2 rounded-l">
-            <button onclick="switchTab('user')" id="tab-user" class="tab-active text-left">Uživatel</button>
-            <button onclick="switchTab('personalization')" id="tab-personalization" class="tab-inactive text-left">Personalizace</button>
+            <button onclick="switchTab('user')" id="tab-user" class="tab-active text-left">{% trans "frontend.setting.user" %}</button>
+            <button onclick="switchTab('personalization')" id="tab-personalization" class="tab-inactive text-left">{% trans "frontend.setting.personalisation" %}</button>
         </div>
         
         <!-- Tab Content -->
         <div class="p-6 flex-1">
             <div id="content-user">
-                <h2 class="text-xl font-bold mb-4">Můj účet</h2>
-                <form method="post">
+                <h2 class="text-xl font-bold mb-4">{% trans "frontend.setting.my_account" %}</h2>
+                <form method="post" id="account">
+                    {% csrf_token %}
                     <div class="mb-4">
-                        <label class="block text-gray-600">Uživatelské jméno</label>
-                        <input type="text" value="username123" class="w-full border border-gray-300 rounded p-2 bg-gray-100">
+                        <label class="block text-gray-600">{% trans "frontend.setting.username" %}</label>
+                        <input type="text" value="{{ user.username }}" class="w-full border border-gray-300 rounded p-2 bg-gray-100">
                     </div>
                     <div class="mb-4">
-                        <label class="block text-gray-600">Email</label>
-                        <input type="email" value="user@example.com" class="w-full border border-gray-300 rounded p-2 bg-gray-100">
+                        <label class="block text-gray-600">{% trans "frontend.setting.email" %}</label>
+                        <input type="email" value="{{ user.email }}" class="w-full border border-gray-300 rounded p-2 bg-gray-100">
                     </div>
                     <div class="mb-4">
-                        <label class="block text-gray-600">Role</label>
-                        <input type="text" value="Warehouse Manager" class="w-full border border-gray-300 rounded p-2 bg-gray-100">
+                        <label class="block text-gray-600">{% trans "frontend.setting.role" %}</label>
+                        <select name="roles" id="role" class="w-full border border-gray-300 rounded p-2 bg-gray-100">
+                            {% for role in roles %}
+                                <option value="test">{{ role.name }}</option>
+                            {% endfor %}
+                        </select>
                     </div>
-                    <div class="mb-4">
-                        <button class="bg-black text-white py-2 px-4 rounded hover:bg-gray-800 transition">Změnit heslo</button>
-                    </div>
-                    <button type="submit" class="w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition">
-                        {% trans "frondend.settings.save_changes" %}
-                    </button>
                 </form>
+                <form method="post" id="change_password" action="{% url 'change_password' %}">
+                    {% csrf_token %}
+                    <div class="mb-4">
+                        <input type="text" hidden name="user_id" value="{{ user.pk }}" class="w-full border border-gray-300 rounded p-2 bg-gray-100">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-600">{% trans "frontend.setting.current_password" %}</label>
+                        <input type="password" name="current_password" class="w-full border border-gray-300 rounded p-2 bg-gray-100">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-600">{% trans "frontend.setting.new_password" %}</label>
+                        <input type="password" name="new_password" class="w-full border border-gray-300 rounded p-2 bg-gray-100">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-600">{% trans "frontend.setting.new_password_again" %}</label>
+                        <input type="password" name="new_password_again" fo class="w-full border border-gray-300 rounded p-2 bg-gray-100">
+                    </div>
+                    <div class="mb-4">
+                        <button form="change_password" class="bg-black text-white py-2 px-4 rounded hover:bg-gray-800 transition">{% trans "frontend.setting.change_password" %}</button>
+                    </div>
+                </form>
+                <button type="submit" form="account" class="w-full bg-black text-white py-2 rounded-lg hover:bg-gray-800 transition">
+                    {% trans "frondend.settings.save_changes" %}
+                </button>
+                
+                
             </div>
 
 
             <div id="content-personalization" class="hidden">
-                <h2 class="text-xl font-bold mb-4">Personalizace</h2>
+                <h2 class="text-xl font-bold mb-4">{% trans "frontend.setting.personalisation" %}</h2>
                 <form method="post">
                     {% csrf_token %}
 

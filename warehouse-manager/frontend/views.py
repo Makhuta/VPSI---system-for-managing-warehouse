@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate
+from django.contrib.auth.models import Group
 from django.utils.translation import activate
 from collections import defaultdict
 from django.conf import settings
@@ -12,6 +14,7 @@ from django.core.paginator import Paginator
 def custom_render(request, template_name, context={}):
     default_context = {
         'user': request.user,
+        'user_role': request.user.groups.all().first(),
     }
 
     if request.user.is_authenticated:
@@ -92,6 +95,7 @@ def page_settings(request):
         context["languages"] = settings.LANGUAGES
         context["current_language"] = user_config.language  
         context["current_currency"] = user_config.currency
+        context["roles"] = Group.objects.all()
         
     return custom_render(request, 'settings.html', context)
 
@@ -112,3 +116,23 @@ def new_supplier(request):
     if request.method == 'POST':
         pass
     return render(request, 'new_supplier.html')
+
+
+@login_required
+def change_password(request):
+    if request.method == 'POST':
+        user_id = request.POST.get("user_id")
+        if user_id:
+            current_password = request.POST.get("current_password")
+            new_password = request.POST.get("new_password")
+            new_password_again = request.POST.get("new_password_again")
+            if current_password and new_password and new_password_again:
+                user_obj = User.objects.get(pk=user_id)
+                user = authenticate(username=user_obj.username, password=current_password)
+                if user is not None:
+                    if new_password == new_password_again:
+                        user.set_password(new_password)
+                        user.save()
+                        return redirect("login")
+
+    return redirect("settings")
