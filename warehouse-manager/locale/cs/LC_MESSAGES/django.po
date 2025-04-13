@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-04-04 00:04+0200\n"
+"POT-Creation-Date: 2025-04-13 16:42+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,11 +27,11 @@ msgstr "Jazyk"
 msgid "database.forms.userconfig.currency"
 msgstr "Měna"
 
-#: .\database\forms.py:14 .\frontend\templates\settings.html:19
+#: .\database\forms.py:14 .\frontend\templates\settings.html:75
 msgid "database.forms.userconfig.language_help_text"
 msgstr "Vyberte vámi preferovaný jazyk"
 
-#: .\database\forms.py:15 .\frontend\templates\settings.html:31
+#: .\database\forms.py:15 .\frontend\templates\settings.html:87
 msgid "database.forms.userconfig.currency_help_text"
 msgstr "Vyberte vámi preferovanou měnu"
 
@@ -188,7 +188,6 @@ msgid "frontend.index.suppliers"
 msgstr "Dodavatelé"
 
 #: .\frontend\templates\base.html:33 .\frontend\templates\settings.html:5
-#: .\frontend\templates\settings.html:12
 msgid "frontend.index.settings"
 msgstr "Nastavení"
 
@@ -200,11 +199,7 @@ msgstr "Odhlásit se"
 msgid "frontend.index.welcome_back"
 msgstr "Vítej zpět"
 
-#: .\frontend\templates\header_bar.html:9
-msgid "frontend.index.search"
-msgstr "Hledat..."
-
-#: .\frontend\templates\header_bar.html:13
+#: .\frontend\templates\header_bar.html:12
 msgid "frontend.index.login"
 msgstr "Příhlásit se"
 
@@ -356,7 +351,47 @@ msgstr "Nebyla nalezena žádná objednávka"
 msgid "frontend.login.login_btn"
 msgstr "Přihlásit se"
 
-#: .\frontend\templates\settings.html:42
+#: .\frontend\templates\settings.html:15
+msgid "frontend.setting.user"
+msgstr "Uživatel"
+
+#: .\frontend\templates\settings.html:16 .\frontend\templates\settings.html:69
+msgid "frontend.setting.personalisation"
+msgstr "Personalizace"
+
+#: .\frontend\templates\settings.html:22
+msgid "frontend.setting.my_account"
+msgstr "Můj účet"
+
+#: .\frontend\templates\settings.html:26
+msgid "frontend.setting.username"
+msgstr "Uživatelské jméno"
+
+#: .\frontend\templates\settings.html:30
+msgid "frontend.setting.email"
+msgstr "Email"
+
+#: .\frontend\templates\settings.html:34
+msgid "frontend.setting.role"
+msgstr "Role"
+
+#: .\frontend\templates\settings.html:45
+msgid "frontend.setting.current_password"
+msgstr "Aktuální heslo"
+
+#: .\frontend\templates\settings.html:49
+msgid "frontend.setting.new_password"
+msgstr "Nové heslo"
+
+#: .\frontend\templates\settings.html:53
+msgid "frontend.setting.new_password_again"
+msgstr "Nové heslo znovu"
+
+#: .\frontend\templates\settings.html:57
+msgid "frontend.setting.change_password"
+msgstr "Změnit heslo"
+
+#: .\frontend\templates\settings.html:61 .\frontend\templates\settings.html:98
 msgid "frondend.settings.save_changes"
 msgstr "Uložit změny"
 
@@ -403,6 +438,9 @@ msgstr "Čeština"
 #: .\server\settings.py:152
 msgid "langs.slovak"
 msgstr "Slovenština"
+
+#~ msgid "frontend.index.search"
+#~ msgstr "Hledat..."
 
 #~ msgid "frontend.suppliers.contact"
 #~ msgstr "Kontakt"
